@@ -534,23 +534,6 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.h-4 {
-  height: 1rem;
-}
-
-.w-4 {
-  width: 1rem;
-}
-
-.w-full {
-  width: 100%;
-}
-
-.bg-slate-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(100 116 139 / var(--tw-bg-opacity));
-}
-
 * {
   padding: 0;
   margin: 0;
