@@ -4,9 +4,9 @@ import MyRoutes from "./Navigation/MyRoutes";
 
 function App() {
   return (
-    <>
+    <div>
       <MyRoutes />
-    </>
+    </div>
   );
 }
 
