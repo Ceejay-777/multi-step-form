@@ -5,8 +5,8 @@ import Navlink from "../components/Navlink";
 const Navbar = () => {
   return (
     <nav>
-      {navlinks.map((navlink) => {
-        return <Navlink>{navlink}</Navlink>;
+      {navlinks.map((navlink, index) => {
+        return <Navlink key={index}>{navlink}</Navlink>;
       })}
     </nav>
   );
