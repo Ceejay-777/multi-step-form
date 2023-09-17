@@ -4,7 +4,7 @@ import MyRoutes from "./Navigation/MyRoutes";
 
 function App() {
   return (
-    <div>
+    <div className="">
       <MyRoutes />
     </div>
   );
