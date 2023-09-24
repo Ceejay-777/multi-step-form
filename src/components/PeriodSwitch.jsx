@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { usePeriodContext } from "../context/periodContext";
 
 const PeriodSwitch = () => {
+  const [period, setPeriod] = usePeriodContext();
+  useEffect(() => {
+    console.log(period, setPeriod);
+  }, []);
   return (
     <div className="flex gap-6 w-full py-4 border-2 rounded-sm bg-coolGray justify-center">
       <div>Monthly</div>
@@ -13,5 +18,4 @@ const PeriodSwitch = () => {
     </div>
   );
 };
-
 export default PeriodSwitch;
