@@ -1,7 +1,12 @@
 import React from "react";
+import PeriodSwitch from "../components/PeriodSwitch";
 
 const Page1 = () => {
-  return <div className="">Page 1</div>;
+  return (
+    <div>
+      <PeriodSwitch />
+    </div>
+  );
 };
 
 export default Page1;

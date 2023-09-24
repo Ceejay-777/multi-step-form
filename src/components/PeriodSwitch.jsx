@@ -2,9 +2,13 @@ import React from "react";
 
 const PeriodSwitch = () => {
   return (
-    <div>
+    <div className="flex gap-6 w-full py-4 border-2 rounded-sm bg-coolGray justify-center">
       <div>Monthly</div>
-      <div></div>
+      <div>
+        <div className="w-12 h-6 rounded-full flex align-middle p-1 bg-marineBlue">
+          <div className="w-4 h-4 bg-white rounded-full"></div>
+        </div>
+      </div>
       <div>Yearly</div>
     </div>
   );
