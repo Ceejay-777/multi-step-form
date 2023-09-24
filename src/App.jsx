@@ -3,7 +3,7 @@ import MyRoutes from "./Navigation/MyRoutes";
 
 function App() {
   return (
-    <div className="w-8 bg-red-700">
+    <div>
       <MyRoutes />
     </div>
   );
