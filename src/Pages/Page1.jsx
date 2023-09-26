@@ -31,14 +31,15 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!namefield) {
+    if (!namefield.value) {
       setNamefield({
         ...namefield,
         isError: true,
         errorMessage: "This field is required",
       });
     }
-    if (!emailfield) {
+    console.log(namefield);
+    if (!emailfield.value) {
       setEmailfield({
         ...emailfield,
         isError: true,
@@ -53,39 +54,29 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
         errorMessage: "Invalid email",
       });
     }
-    if (!phonefield) {
+    if (!phonefield.value) {
       setPhonefield({
         ...phonefield,
         isError: true,
         errorMessage: "This field is required",
       });
     }
-  };
 
-  // const handleBlur = () => {
-  //   setPage1Vals({
-  //     name: {
-  //       nameVal: namefield.value,
-  //       nameError: namefield.errorMessage,
-  //     },
-  //     email: {
-  //       emailVal: emailfield.value,
-  //       emailError: emailfield.errorMessage,
-  //     },
-  //     phone: {
-  //       phoneVal: phonefield.value,
-  //       phoneError: phonefield.errorMessage,
-  //     },
-  //   });
-  //   console.log(page1Vals);
-  // };
+    setPage1Vals({
+      nameVal: namefield.value,
+      emailVal: emailfield.value,
+      phoneVal: phonefield.value,
+    });
+
+    // console.log(page1Vals);
+  };
 
   return (
     <div>
       <h1>Personal info</h1>
       <p>Please provide your name, email address and phone number</p>
 
-      <>
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name</label>
           <br />
@@ -99,6 +90,8 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
             onChange={handleInputChange}
             // onBlur={handleBlur}
           />
+          <br />
+          {namefield.isError && <p>{namefield.errorMessage}</p>}
         </div>
 
         <div>
@@ -113,6 +106,8 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
             value={emailfield.value}
             onChange={handleInputChange}
           />
+          <br />
+          {emailfield.isError && <p>{emailfield.errorMessage}</p>}
         </div>
 
         <div>
@@ -127,11 +122,13 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
             value={phonefield.value}
             onChange={handleInputChange}
           />
+          <br />
+          {phonefield.isError && <p>{phonefield.errorMessage}</p>}
         </div>
 
         <button type="submit">Next Step</button>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };
 
