@@ -1,11 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PeriodSwitch from "../components/PeriodSwitch";
 
-const Page1 = (props) => {
-  console.log(props.setPage1);
-  const [namefield, setNamefield] = useState({ value: "", isError: false });
-  const [emailfield, setEmailfield] = useState({ value: "", isError: false });
-  const [phonefield, setPhonefield] = useState({ value: "", isError: false });
+const Page1 = ({ page1Vals, setPage1Vals }) => {
+  const [namefield, setNamefield] = useState({
+    value: "",
+    isError: false,
+    errorMessage: "",
+  });
+  const [emailfield, setEmailfield] = useState({
+    value: "",
+    isError: false,
+    errorMessage: "",
+  });
+  const [phonefield, setPhonefield] = useState({
+    value: "",
+    isError: false,
+    errorMessage: "",
+  });
 
   const handleInputChange = (event) => {
     event.preventDefault();
@@ -18,12 +29,63 @@ const Page1 = (props) => {
     }
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!namefield) {
+      setNamefield({
+        ...namefield,
+        isError: true,
+        errorMessage: "This field is required",
+      });
+    }
+    if (!emailfield) {
+      setEmailfield({
+        ...emailfield,
+        isError: true,
+        errorMessage: "This field is required",
+      });
+    } else if (
+      !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(emailfield.value)
+    ) {
+      setEmailfield({
+        ...emailfield,
+        isError: true,
+        errorMessage: "Invalid email",
+      });
+    }
+    if (!phonefield) {
+      setPhonefield({
+        ...phonefield,
+        isError: true,
+        errorMessage: "This field is required",
+      });
+    }
+  };
+
+  // const handleBlur = () => {
+  //   setPage1Vals({
+  //     name: {
+  //       nameVal: namefield.value,
+  //       nameError: namefield.errorMessage,
+  //     },
+  //     email: {
+  //       emailVal: emailfield.value,
+  //       emailError: emailfield.errorMessage,
+  //     },
+  //     phone: {
+  //       phoneVal: phonefield.value,
+  //       phoneError: phonefield.errorMessage,
+  //     },
+  //   });
+  //   console.log(page1Vals);
+  // };
+
   return (
     <div>
       <h1>Personal info</h1>
       <p>Please provide your name, email address and phone number</p>
 
-      <form>
+      <>
         <div>
           <label htmlFor="name">Name</label>
           <br />
@@ -35,6 +97,7 @@ const Page1 = (props) => {
             className="w-full border-2"
             value={namefield.value}
             onChange={handleInputChange}
+            // onBlur={handleBlur}
           />
         </div>
 
@@ -65,8 +128,10 @@ const Page1 = (props) => {
             onChange={handleInputChange}
           />
         </div>
-      </form>
-    </div>
+
+        <button type="submit">Next Step</button>
+      </div>
+    </form>
   );
 };
 

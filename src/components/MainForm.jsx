@@ -12,10 +12,10 @@ const MainForm = () => {
 
   return (
     <form>
-      <Page1 setPage1={setPage1Vals} />
+      {/* <Page1 setPage1={setPage1Vals} />
       <Page2 />
       <Page3 />
-      <Page4 />
+      <Page4 /> */}
     </form>
   );
 };
