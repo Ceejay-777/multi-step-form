@@ -13,19 +13,15 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
       <p>You have the option of monthly or yearly billing</p>
 
       {planToUse.map((plans, ID) => {
-        console.log(plans);
         const { image, plan, price, promo } = plans;
         return (
-          <div>
-            {/* <p>Okay</p> */}
-            <PlanBox
-              image={image}
-              plan={plan}
-              price={price}
-              promo={promo}
-              key={ID}
-            />
-          </div>
+          <PlanBox
+            image={image}
+            plan={plan}
+            price={price}
+            promo={promo}
+            key={ID}
+          />
         );
       })}
       <PeriodSwitch />
