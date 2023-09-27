@@ -27,7 +27,12 @@ const MyRoutes = () => {
               <Page1 page1Vals={page1Vals} setPage1Vals={setPage1Vals} />
             }
           ></Route>
-          <Route path="Page2" element={<Page2 />} />
+          <Route
+            path="Page2"
+            element={
+              <Page2 page2Vals={page2Vals} setPage2Vals={setPage2Vals} />
+            }
+          />
           <Route path="Page3" element={<Page3 />} />
           <Route path="Page4" element={<Page4 />} />
         </Route>

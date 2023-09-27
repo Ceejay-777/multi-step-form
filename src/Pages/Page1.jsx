@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import PeriodSwitch from "../components/PeriodSwitch";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Page1 = ({ page1Vals, setPage1Vals }) => {
   const [submitted, setSubmitted] = useState(false);
+  const [formvalid, setFormValid] = useState(false);
   const currentLocation = useLocation();
 
   const [namefield, setNamefield] = useState({
@@ -26,7 +27,6 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
     namefield.value = page1Vals.nameVal;
     emailfield.value = page1Vals.emailVal;
     phonefield.value = page1Vals.phoneVal;
-    console.log("Okay");
   }, []);
 
   const handleInputChange = (event) => {
@@ -117,6 +117,8 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
         emailVal: emailfield.value,
         phoneVal: phonefield.value,
       });
+
+      setFormValid(true);
     }
   };
 
@@ -178,7 +180,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
         </div>
 
         <button type="submit" onClick={() => setSubmitted(true)}>
-          Next Step
+          {formvalid ? <Link to="/Page2">Next</Link> : "Next"}
         </button>
       </form>
     </div>
