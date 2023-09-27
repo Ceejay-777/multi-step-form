@@ -29,14 +29,6 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
     console.log("Okay");
   }, []);
 
-  useEffect(() => {
-    setPage1Vals({
-      nameVal: namefield.value,
-      emailVal: emailfield.value,
-      phoneVal: phonefield.value,
-    });
-  }, [currentLocation.pathname]);
-
   const handleInputChange = (event) => {
     event.preventDefault();
     if (event.target.name === "name") {
