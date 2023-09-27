@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { usePeriodContext } from "../context/periodContext";
 
 const PeriodSwitch = () => {
-  const [period, setPeriod] = usePeriodContext();
+  const [monthly, setMonthly] = usePeriodContext();
 
-  const translation = period ? "left-0" : "left-6";
+  const translation = monthly ? "left-0" : "left-6";
 
   return (
     <div className="flex gap-6 w-full py-4 border-2 rounded-sm bg-coolGray justify-center">
@@ -13,7 +13,7 @@ const PeriodSwitch = () => {
         <div
           className="w-12 h-6 rounded-full flex align-middle p-1 bg-marineBlue"
           onClick={() => {
-            setPeriod(!period);
+            setMonthly(!monthly);
           }}
         >
           <div
