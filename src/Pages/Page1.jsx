@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import PeriodSwitch from "../components/PeriodSwitch";
+import { useLocation } from "react-router-dom";
 
 const Page1 = ({ page1Vals, setPage1Vals }) => {
   const [submitted, setSubmitted] = useState(false);
+  const currentLocation = useLocation();
+
   const [namefield, setNamefield] = useState({
     value: "",
     isError: false,
@@ -18,6 +21,21 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
     isError: false,
     errorMessage: "",
   });
+
+  useEffect(() => {
+    namefield.value = page1Vals.nameVal;
+    emailfield.value = page1Vals.emailVal;
+    phonefield.value = page1Vals.phoneVal;
+    console.log("Okay");
+  }, []);
+
+  useEffect(() => {
+    setPage1Vals({
+      nameVal: namefield.value,
+      emailVal: emailfield.value,
+      phoneVal: phonefield.value,
+    });
+  }, [currentLocation.pathname]);
 
   const handleInputChange = (event) => {
     event.preventDefault();

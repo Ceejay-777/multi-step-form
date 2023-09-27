@@ -8,7 +8,11 @@ import Page4 from "../pages/Page4";
 import SharedLayout from "./SharedLayout";
 
 const MyRoutes = () => {
-  const [page1Vals, setPage1Vals] = useState(null);
+  const [page1Vals, setPage1Vals] = useState({
+    nameVal: "",
+    emailVal: "",
+    phoneVal: "",
+  });
   const [page2Vals, setPage2Vals] = useState(null);
   const [page3Vals, setPage3Vals] = useState(null);
   const [page4Vals, setPage4Vals] = useState(null);
