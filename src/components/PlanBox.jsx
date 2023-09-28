@@ -2,7 +2,7 @@ import React from "react";
 
 const PlanBox = ({ image, plan, price, promo }) => {
   return (
-    <div>
+    <div className="border-2 my-4">
       <img src={image} />
       <div>
         <h2>{plan}</h2>
