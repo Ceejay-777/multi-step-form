@@ -29,3 +29,24 @@ export const yearlyPlan = [
     promo: "2 months free",
   },
 ];
+
+export const addons = [
+  {
+    addon: "Online service",
+    perk: "Access to multiplayer games",
+    monthlyPrice: "1",
+    yearlyPrice: "10",
+  },
+  {
+    addon: "Larger storage",
+    perk: "Extra 1TB of cloud save",
+    monthlyPrice: "2",
+    yearlyPrice: "20",
+  },
+  {
+    addon: "Customizable profile",
+    perk: "Custom theme on your profile",
+    monthlyPrice: "2",
+    yearlyPrice: "20",
+  },
+];
