@@ -9,10 +9,6 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
   const [monthly] = usePeriodContext();
   const planToUse = monthly ? monthlyPlan : yearlyPlan;
 
-  useEffect(() => {
-    console.log(currentPlan);
-  }, [currentPlan]);
-
   return (
     <div>
       <h1>Select your plan</h1>
@@ -21,14 +17,8 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
       {planToUse.map((plans, ID) => {
         const { image, plan, price, promo } = plans;
         return (
-          <div onClick={() => setCurrentPlan(plan)}>
-            <PlanBox
-              image={image}
-              plan={plan}
-              price={price}
-              promo={promo}
-              key={ID}
-            />
+          <div key={ID} onClick={() => setPage2Vals(plan)}>
+            <PlanBox image={image} plan={plan} price={price} promo={promo} />
           </div>
         );
       })}
