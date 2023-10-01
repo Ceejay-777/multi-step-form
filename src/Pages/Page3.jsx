@@ -9,26 +9,32 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
   const [monthly, setMonthly] = usePeriodContext();
   const [selection, setSelecton] = useState([]);
 
-  // useEffect(())
+  // useEffect(() => {
+  //   console.log(["okay", "me"].join(""));
+  // }, []);
   const handleSelection = (event) => {
-    console.log(event.target.clicked);
+    console.log(event.currentTarget.classList[0]);
     // if (!event.target.clicked) {
     // }
   };
   return (
     <form>
-      {addons.map((singleAddon) => {
+      {addons.map((singleAddon, index) => {
         const { addon, perk, monthlyPrice, yearlyPrice } = singleAddon;
         return (
-          <AddonBox
-            addon={addon}
-            perk={perk}
-            price={monthly ? `$${monthlyPrice}/mo` : `$${yearlyPrice}/yr`}
+          <div
+            className={`${addon.split(" ").join("")} `}
+            onClick={handleSelection}
+            key={index}
           >
             <div className="bg-purpleBlue p-1 border-2 w-4 aspect-square box-content">
               <img src={check} className="w-full" />
             </div>
-          </AddonBox>
+
+            <h2>{addon}</h2>
+            <p>{perk}</p>
+            <p>{monthly ? `$${monthlyPrice}/mo` : `$${yearlyPrice}/yr`}</p>
+          </div>
         );
       })}
       <button type="submit">Okay</button>
