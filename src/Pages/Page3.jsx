@@ -13,9 +13,14 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
   //   console.log(["okay", "me"].join(""));
   // }, []);
   const handleSelection = (event) => {
-    console.log(event.currentTarget.classList[0]);
-    // if (!event.target.clicked) {
-    // }
+    const name = event.currentTarget.attributes.dataVals.value;
+    // console.log(event.currentTarget.classList[0]);
+    if (!selection.includes(name)) {
+      selection.push(name);
+    } else {
+      selection[selection.indexOf(name)] = null;
+    }
+    console.log(selection);
   };
   return (
     <form>
@@ -23,9 +28,10 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
         const { addon, perk, monthlyPrice, yearlyPrice } = singleAddon;
         return (
           <div
-            className={`${addon.split(" ").join("")} `}
+            // className={}
             onClick={handleSelection}
             key={index}
+            dataVals={addon}
           >
             <div className="bg-purpleBlue p-1 border-2 w-4 aspect-square box-content">
               <img src={check} className="w-full" />
