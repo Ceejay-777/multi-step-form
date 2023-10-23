@@ -7,21 +7,29 @@ import check from "../../assets/images/icon-checkmark.svg";
 
 const Page3 = ({ page3Vals, setPage3Vals }) => {
   const [monthly, setMonthly] = usePeriodContext();
-  const [selection, setSelecton] = useState([]);
+  const [selection, setSelection] = useState();
 
   // useEffect(() => {
   //   console.log(["okay", "me"].join(""));
+  //   console.log(typeof setSelection);
   // }, []);
+
   const handleSelection = (event) => {
-    const name = event.currentTarget.attributes.dataVals.value;
-    // console.log(event.currentTarget.classList[0]);
-    if (!selection.includes(name)) {
-      selection.push(name);
+    const name = event.currentTarget.attributes.datavals.value;
+
+    if (selection) {
+      let newSelection = selection.push(name);
+      setSelection(newSelection);
+      // selection.push(name);
     } else {
-      selection[selection.indexOf(name)] = null;
+      // setSelection((selection) => {
+      //   let index = selection.indexOf(name);
+      //   return selection.splice(index, 1);
+      // });
     }
     console.log(selection);
   };
+
   return (
     <form>
       {addons.map((singleAddon, index) => {
@@ -31,7 +39,7 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
             // className={}
             onClick={handleSelection}
             key={index}
-            dataVals={addon}
+            datavals={addon}
           >
             <div className="bg-purpleBlue p-1 border-2 w-4 aspect-square box-content">
               <img src={check} className="w-full" />
