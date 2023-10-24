@@ -10,8 +10,6 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
   const [selection, setSelection] = useState([]);
 
   useEffect(() => {
-    // console.log(["okay", "me"].join(""));
-    // console.log(typeof setSelection);
     console.log(selection);
   }, [selection]);
 
@@ -20,27 +18,15 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
 
     if (!selection) {
       setSelection([name]);
-
-      // selection.push(name);
     } else {
       if (selection.includes(name)) {
-        // let index = selection.indexOf(name);
-        let newSelection = selection.filter((select) => {
-          select != name;
-        });
-        setSelection(selection.splice(index, 1));
+        let newSelection = selection.filter((select) => select != name);
+        setSelection(newSelection);
       } else {
         let newSelection = [...selection, name];
         setSelection(newSelection);
       }
-
-      // setSelection((selection) => {
-      //
-      //   return ;
-      // });
     }
-
-    // console.log(selection);
   };
 
   return (
