@@ -7,27 +7,40 @@ import check from "../../assets/images/icon-checkmark.svg";
 
 const Page3 = ({ page3Vals, setPage3Vals }) => {
   const [monthly, setMonthly] = usePeriodContext();
-  const [selection, setSelection] = useState();
+  const [selection, setSelection] = useState([]);
 
-  // useEffect(() => {
-  //   console.log(["okay", "me"].join(""));
-  //   console.log(typeof setSelection);
-  // }, []);
+  useEffect(() => {
+    // console.log(["okay", "me"].join(""));
+    // console.log(typeof setSelection);
+    console.log(selection);
+  }, [selection]);
 
   const handleSelection = (event) => {
     const name = event.currentTarget.attributes.datavals.value;
 
-    if (selection) {
-      let newSelection = selection.push(name);
-      setSelection(newSelection);
+    if (!selection) {
+      setSelection([name]);
+
       // selection.push(name);
     } else {
+      if (selection.includes(name)) {
+        // let index = selection.indexOf(name);
+        let newSelection = selection.filter((select) => {
+          select != name;
+        });
+        setSelection(selection.splice(index, 1));
+      } else {
+        let newSelection = [...selection, name];
+        setSelection(newSelection);
+      }
+
       // setSelection((selection) => {
-      //   let index = selection.indexOf(name);
-      //   return selection.splice(index, 1);
+      //
+      //   return ;
       // });
     }
-    console.log(selection);
+
+    // console.log(selection);
   };
 
   return (
@@ -36,7 +49,7 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
         const { addon, perk, monthlyPrice, yearlyPrice } = singleAddon;
         return (
           <div
-            // className={}
+            className="py-4"
             onClick={handleSelection}
             key={index}
             datavals={addon}
