@@ -4,14 +4,33 @@ import { addons } from "../data";
 import { usePeriodContext } from "../context/periodContext";
 import PeriodSwitch from "../components/PeriodSwitch";
 import check from "../../assets/images/icon-checkmark.svg";
+import { useNavigate } from "react-router-dom";
 
 const Page3 = ({ page3Vals, setPage3Vals }) => {
+  const navigate = useNavigate();
   const [monthly, setMonthly] = usePeriodContext();
-  const [selection, setSelection] = useState([]);
+  const [selection, setSelection] = useState(null);
+  const [error, setError] = useState(false);
+  // const list = [];
 
   useEffect(() => {
+    // if (selection) {
+    //   if (selection.length() == 0) {
+    //     setSelection(null);
+    //   }
+    // }
     console.log(selection);
+    // console.log(list.length);
   }, [selection]);
+
+  const handleSubmit = (event) => {
+    // navigate("/Page4");
+    if (!selection || selection.length() == 0) {
+      // setError(true);\
+      console.log("Okay");
+    }
+    setMonthly(selection);
+  };
 
   const handleSelection = (event) => {
     const name = event.currentTarget.attributes.datavals.value;
@@ -22,6 +41,9 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
       if (selection.includes(name)) {
         let newSelection = selection.filter((select) => select != name);
         setSelection(newSelection);
+        if (selection.length == 0) {
+          setSelection(null);
+        }
       } else {
         let newSelection = [...selection, name];
         setSelection(newSelection);
@@ -30,29 +52,32 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
   };
 
   return (
-    <form>
-      {addons.map((singleAddon, index) => {
-        const { addon, perk, monthlyPrice, yearlyPrice } = singleAddon;
-        return (
-          <div
-            className="py-4"
-            onClick={handleSelection}
-            key={index}
-            datavals={addon}
-          >
-            <div className="bg-purpleBlue p-1 border-2 w-4 aspect-square box-content">
-              <img src={check} className="w-full" />
+    <div>
+      <div>
+        {addons.map((singleAddon, index) => {
+          const { addon, perk, monthlyPrice, yearlyPrice } = singleAddon;
+          return (
+            <div
+              className="p-4 border-2 my-2"
+              onClick={handleSelection}
+              key={index}
+              datavals={addon}
+            >
+              <div className="bg-purpleBlue p-1 border-2 w-4 aspect-square box-content">
+                <img src={check} className="w-full" />
+              </div>
+              <h2>{addon}</h2>
+              <p>{perk}</p>
+              <p>{monthly ? `$${monthlyPrice}/mo` : `$${yearlyPrice}/yr`}</p>
             </div>
-
-            <h2>{addon}</h2>
-            <p>{perk}</p>
-            <p>{monthly ? `$${monthlyPrice}/mo` : `$${yearlyPrice}/yr`}</p>
-          </div>
-        );
-      })}
-      <button type="submit">Okay</button>
-      <PeriodSwitch />
-    </form>
+          );
+        })}
+      </div>
+      <button type="button" className="border-2 p-1 m-4" onClick={handleSubmit}>
+        Okay
+      </button>
+      {/* <PeriodSwitch /> */}
+    </div>
   );
 };
 
