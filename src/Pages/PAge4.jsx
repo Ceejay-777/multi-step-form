@@ -9,6 +9,9 @@ const Page4 = ({ page2Vals, page3Vals }) => {
       <p>Double-check everything looks OK before confirming</p>
       <div>
         <p>{page2Vals}</p>
+        {page3Vals.map((addon) => {
+          return <div key={addon}>{addon}</div>;
+        })}
       </div>
     </div>
   );

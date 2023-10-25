@@ -13,8 +13,8 @@ const MyRoutes = () => {
     emailVal: "",
     phoneVal: "",
   });
-  const [page2Vals, setPage2Vals] = useState(null);
-  const [page3Vals, setPage3Vals] = useState(null);
+  const [page2Vals, setPage2Vals] = useState([]);
+  const [page3Vals, setPage3Vals] = useState([]);
 
   return (
     <Router>

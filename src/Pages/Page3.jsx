@@ -65,9 +65,20 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
           );
         })}
       </div>
-      <button type="button" className="border-2 p-1 m-4" onClick={handleSubmit}>
-        Okay
-      </button>
+      <div className="flex justify-between px-4 my-2">
+        <button
+          type="button"
+          className="p-1 border-2"
+          onClick={() => {
+            navigate("/Page2");
+          }}
+        >
+          Go back
+        </button>
+        <button type="button" className="p-1 border-2" onClick={handleSubmit}>
+          Next Step
+        </button>
+      </div>
       {/* <PeriodSwitch /> */}
     </div>
   );

@@ -19,7 +19,7 @@ export const yearlyPlan = [
   {
     image: advancedIcon,
     plan: "Advanced",
-    price: "$120/yro",
+    price: "$120/yr",
     promo: "2 months free",
   },
   {

@@ -21,6 +21,10 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
     navigate("/page3");
   };
 
+  useEffect(() => {
+    console.log(currentPlan);
+  }, [currentPlan]);
+
   return (
     <div>
       {error && <div className="bg-red-600">Error</div>}
@@ -33,7 +37,7 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
           <div
             key={ID}
             onClick={() => {
-              setCurrentPlan(plan);
+              setCurrentPlan([plan, price]);
               setError(false);
             }}
           >
