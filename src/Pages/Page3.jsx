@@ -1,35 +1,30 @@
 import React, { useEffect, useState } from "react";
-import AddonBox from "../components/AddonBox";
 import { addons } from "../data";
 import { usePeriodContext } from "../context/periodContext";
-import PeriodSwitch from "../components/PeriodSwitch";
 import check from "../../assets/images/icon-checkmark.svg";
 import { useNavigate } from "react-router-dom";
 
 const Page3 = ({ page3Vals, setPage3Vals }) => {
   const navigate = useNavigate();
   const [monthly, setMonthly] = usePeriodContext();
-  const [selection, setSelection] = useState(null);
+  const [selection, setSelection] = useState(page3Vals);
   const [error, setError] = useState(false);
-  // const list = [];
 
   useEffect(() => {
-    // if (selection) {
-    //   if (selection.length() == 0) {
-    //     setSelection(null);
-    //   }
-    // }
-    console.log(selection);
-    // console.log(list.length);
+    if (selection) {
+      if (selection.length == 0) {
+        setSelection(null);
+      }
+    }
   }, [selection]);
 
-  const handleSubmit = (event) => {
-    // navigate("/Page4");
-    if (!selection || selection.length() == 0) {
-      // setError(true);\
-      console.log("Okay");
+  const handleSubmit = () => {
+    if (!selection) {
+      setError(true);
+      return;
     }
-    setMonthly(selection);
+    navigate("/Page4");
+    setPage3Vals(selection);
   };
 
   const handleSelection = (event) => {
@@ -41,9 +36,6 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
       if (selection.includes(name)) {
         let newSelection = selection.filter((select) => select != name);
         setSelection(newSelection);
-        if (selection.length == 0) {
-          setSelection(null);
-        }
       } else {
         let newSelection = [...selection, name];
         setSelection(newSelection);
