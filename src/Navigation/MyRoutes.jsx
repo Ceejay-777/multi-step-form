@@ -15,7 +15,6 @@ const MyRoutes = () => {
   });
   const [page2Vals, setPage2Vals] = useState(null);
   const [page3Vals, setPage3Vals] = useState(null);
-  const [page4Vals, setPage4Vals] = useState(null);
 
   return (
     <Router>
@@ -39,7 +38,10 @@ const MyRoutes = () => {
               <Page3 page3Vals={page3Vals} setPage3Vals={setPage3Vals} />
             }
           />
-          <Route path="Page4" element={<Page4 />} />
+          <Route
+            path="Page4"
+            element={<Page4 page2Vals={page2Vals} page3Vals={page3Vals} />}
+          />
         </Route>
       </Routes>
     </Router>

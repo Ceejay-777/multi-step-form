@@ -1,33 +1,34 @@
 import React, { useEffect, useState } from "react";
 import PeriodSwitch from "../components/PeriodSwitch";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Page1 = ({ page1Vals, setPage1Vals }) => {
+  const navigate = useNavigate();
   const [submitted, setSubmitted] = useState(false);
-  const [formvalid, setFormValid] = useState(false);
   const currentLocation = useLocation();
 
   const [namefield, setNamefield] = useState({
-    value: "",
+    value: page1Vals.nameVal,
     isError: false,
     errorMessage: "",
   });
   const [emailfield, setEmailfield] = useState({
-    value: "",
+    value: page1Vals.emailVal,
     isError: false,
     errorMessage: "",
   });
   const [phonefield, setPhonefield] = useState({
-    value: "",
+    value: page1Vals.phoneVal,
     isError: false,
     errorMessage: "",
   });
 
   useEffect(() => {
-    namefield.value = page1Vals.nameVal;
-    emailfield.value = page1Vals.emailVal;
-    phonefield.value = page1Vals.phoneVal;
-  }, []);
+    //   namefield.value = page1Vals.nameVal;
+    //   emailfield.value = page1Vals.emailVal;
+    //   phonefield.value = page1Vals.phoneVal;
+    console.log(namefield, emailfield, phonefield);
+  }, [submitted]);
 
   const handleInputChange = (event) => {
     event.preventDefault();
@@ -66,6 +67,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
           isError: true,
           errorMessage: "This field is required",
         });
+        console.log(emailfield.isError);
       } else if (
         !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
           emailfield.value
@@ -106,19 +108,21 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setSubmitted(true);
 
     validateName();
     validateEmail();
     validatePhone();
 
     if (!namefield.isError && !emailfield.isError && !phonefield.isError) {
+      console.log("submitted");
       setPage1Vals({
         nameVal: namefield.value,
         emailVal: emailfield.value,
         phoneVal: phonefield.value,
       });
 
-      setFormValid(true);
+      // navigate("/page2");
     }
   };
 
@@ -179,8 +183,12 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
           {phonefield.isError && <p>{phonefield.errorMessage}</p>}
         </div>
 
-        <button type="submit" onClick={() => setSubmitted(true)}>
-          {formvalid ? <Link to="/Page2">Next</Link> : "Next"}
+        <button
+          type="submit"
+          className="p-1 border-2"
+          // onClick={() => setSubmitted(true)}
+        >
+          Next
         </button>
       </form>
     </div>
