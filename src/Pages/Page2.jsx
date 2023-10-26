@@ -37,7 +37,7 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
           <div
             key={ID}
             onClick={() => {
-              setCurrentPlan([plan, price]);
+              setCurrentPlan({ plan, price });
               setError(false);
             }}
           >

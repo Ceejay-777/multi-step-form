@@ -45,6 +45,7 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
 
   return (
     <div>
+      {error && <p className="bg-red-600">Error</p>}
       <div>
         {addons.map((singleAddon, index) => {
           const { addon, perk, monthlyPrice, yearlyPrice } = singleAddon;

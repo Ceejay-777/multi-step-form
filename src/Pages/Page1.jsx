@@ -27,8 +27,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
     //   namefield.value = page1Vals.nameVal;
     //   emailfield.value = page1Vals.emailVal;
     //   phonefield.value = page1Vals.phoneVal;
-    console.log(namefield, emailfield, phonefield);
-  }, [submitted]);
+  }, []);
 
   const handleInputChange = (event) => {
     event.preventDefault();
@@ -42,67 +41,58 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
   };
 
   const validateName = () => {
-    if (submitted) {
-      if (!namefield.value) {
-        setNamefield({
-          ...namefield,
-          isError: true,
-          errorMessage: "This field is required",
-        });
-      } else {
-        setNamefield({
-          ...namefield,
-          isError: false,
-          errorMessage: "This field is required",
-        });
-      }
+    if (!namefield.value) {
+      setNamefield({
+        ...namefield,
+        isError: true,
+        errorMessage: "This field is required",
+      });
+    } else {
+      setNamefield({
+        ...namefield,
+        isError: false,
+        errorMessage: "This field is required",
+      });
     }
   };
 
   const validateEmail = () => {
-    if (submitted) {
-      if (!emailfield.value) {
-        setEmailfield({
-          ...emailfield,
-          isError: true,
-          errorMessage: "This field is required",
-        });
-        console.log(emailfield.isError);
-      } else if (
-        !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
-          emailfield.value
-        )
-      ) {
-        setEmailfield({
-          ...emailfield,
-          isError: true,
-          errorMessage: "Invalid Email",
-        });
-      } else {
-        setEmailfield({
-          ...emailfield,
-          isError: false,
-          errorMessage: "",
-        });
-      }
+    if (!emailfield.value) {
+      setEmailfield({
+        ...emailfield,
+        isError: true,
+        errorMessage: "This field is required",
+      });
+    } else if (
+      !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(emailfield.value)
+    ) {
+      setEmailfield({
+        ...emailfield,
+        isError: true,
+        errorMessage: "Invalid Email",
+      });
+    } else {
+      setEmailfield({
+        ...emailfield,
+        isError: false,
+        errorMessage: "",
+      });
     }
   };
 
   const validatePhone = () => {
-    if (submitted) {
-      if (!phonefield.value) {
-        setPhonefield({
-          ...phonefield,
-          isError: true,
-          errorMessage: "This field is required",
-        });
-      } else {
-        setPhonefield({
-          ...phonefield,
-          isError: true,
-          errorMessage: "",
-        });
-      }
+    if (!phonefield.value) {
+      setPhonefield({
+        ...phonefield,
+        isError: true,
+        errorMessage: "This field is required",
+      });
+    } else {
+      setPhonefield({
+        ...phonefield,
+        isError: true,
+        errorMessage: "",
+      });
     }
   };
 
@@ -115,14 +105,15 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
     validatePhone();
 
     if (!namefield.isError && !emailfield.isError && !phonefield.isError) {
+      // navigate("/page2");
       console.log("submitted");
+      console.log(namefield, emailfield, phonefield);
+
       setPage1Vals({
         nameVal: namefield.value,
         emailVal: emailfield.value,
         phoneVal: phonefield.value,
       });
-
-      // navigate("/page2");
     }
   };
 
@@ -143,7 +134,11 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
             className="w-full border-2"
             value={namefield.value}
             onChange={handleInputChange}
-            onBlur={validateName}
+            onBlur={() => {
+              if (submitted) {
+                validateName;
+              }
+            }}
           />
           <br />
           {namefield.isError && <p>{namefield.errorMessage}</p>}
@@ -160,7 +155,11 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
             className="w-full border-2"
             value={emailfield.value}
             onChange={handleInputChange}
-            onBlur={validateEmail}
+            onBlur={() => {
+              if (submitted) {
+                validateEmail;
+              }
+            }}
           />
           <br />
           {emailfield.isError && <p>{emailfield.errorMessage}</p>}
@@ -177,7 +176,11 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
             className="w-full border-2"
             value={phonefield.value}
             onChange={handleInputChange}
-            onBlur={validatePhone}
+            onBlur={() => {
+              if (submitted) {
+                validatePhone;
+              }
+            }}
           />
           <br />
           {phonefield.isError && <p>{phonefield.errorMessage}</p>}

@@ -13,7 +13,10 @@ const MyRoutes = () => {
     emailVal: "",
     phoneVal: "",
   });
-  const [page2Vals, setPage2Vals] = useState([]);
+  const [page2Vals, setPage2Vals] = useState({
+    plan: "Arcade",
+    price: "$90/yr",
+  });
   const [page3Vals, setPage3Vals] = useState([]);
 
   return (
