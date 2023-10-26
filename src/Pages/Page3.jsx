@@ -8,10 +8,11 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
   const navigate = useNavigate();
   const [monthly, setMonthly] = usePeriodContext();
   const [selection, setSelection] = useState(page3Vals);
-  const [error, setError] = useState(false);
+  // const [error, setError] = useState(false);
 
   useEffect(() => {
     if (selection) {
+      console.log(selection);
       if (selection.length == 0) {
         setSelection(null);
       }
@@ -19,11 +20,7 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
   }, [selection]);
 
   const handleSubmit = () => {
-    if (!selection) {
-      setError(true);
-      return;
-    }
-    navigate("/Page4");
+    te("/Page4");
     setPage3Vals(selection);
   };
 
@@ -45,16 +42,17 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
 
   return (
     <div>
-      {error && <p className="bg-red-600">Error</p>}
+      {/* {error && <p className="bg-red-600">Error</p>} */}
       <div>
         {addons.map((singleAddon, index) => {
           const { addon, perk, monthlyPrice, yearlyPrice } = singleAddon;
+          const currentPrice = monthly ? monthlyPrice : yearlyPrice;
           return (
             <div
               className="p-4 border-2 my-2"
               onClick={handleSelection}
               key={index}
-              datavals={addon}
+              datavals={[addon, currentPrice]}
             >
               <div className="bg-purpleBlue p-1 border-2 w-4 aspect-square box-content">
                 <img src={check} className="w-full" />

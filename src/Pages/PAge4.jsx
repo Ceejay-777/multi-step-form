@@ -2,6 +2,7 @@ import React from "react";
 import { usePeriodContext } from "../context/periodContext";
 
 const Page4 = ({ page2Vals, page3Vals }) => {
+  console.log(page3Vals);
   const [period] = usePeriodContext();
   return (
     <div>
@@ -11,9 +12,11 @@ const Page4 = ({ page2Vals, page3Vals }) => {
         <p>{page2Vals.plan}</p>
         <p>{page2Vals.price}</p>
 
-        {page3Vals.map((addon) => {
-          return <div key={addon}>{addon}</div>;
-        })}
+        {page3Vals
+          ? page3Vals.map((addon) => {
+              return <div key={addon}>{addon}</div>;
+            })
+          : null}
       </div>
     </div>
   );
