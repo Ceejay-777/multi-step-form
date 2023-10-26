@@ -6,20 +6,21 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
   const navigate = useNavigate();
   const [submitted, setSubmitted] = useState(false);
   const currentLocation = useLocation();
+  const [formValid, setFormValid] = useState(false);
 
   const [namefield, setNamefield] = useState({
     value: page1Vals.nameVal,
-    isError: false,
+    isError: true,
     errorMessage: "",
   });
   const [emailfield, setEmailfield] = useState({
     value: page1Vals.emailVal,
-    isError: false,
+    isError: true,
     errorMessage: "",
   });
   const [phonefield, setPhonefield] = useState({
     value: page1Vals.phoneVal,
-    isError: false,
+    isError: true,
     errorMessage: "",
   });
 
@@ -51,9 +52,10 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
       setNamefield({
         ...namefield,
         isError: false,
-        errorMessage: "This field is required",
+        errorMessage: "",
       });
     }
+    console.log("Validated Name");
   };
 
   const validateEmail = () => {
@@ -78,6 +80,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
         errorMessage: "",
       });
     }
+    console.log("Validated Email");
   };
 
   const validatePhone = () => {
@@ -94,6 +97,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
         errorMessage: "",
       });
     }
+    console.log("Validated Phone");
   };
 
   const handleSubmit = (event) => {
@@ -105,16 +109,23 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
     validatePhone();
 
     if (!namefield.isError && !emailfield.isError && !phonefield.isError) {
-      // navigate("/page2");
+      // setFormValid(true);
       console.log("submitted");
-      console.log(namefield, emailfield, phonefield);
+      console.log(namefield.isError, emailfield.isError, phonefield.isError);
 
       setPage1Vals({
         nameVal: namefield.value,
         emailVal: emailfield.value,
         phoneVal: phonefield.value,
       });
+
+      // setTimeout(() => navigate("/page2"), 4000);
+      navigate("/page2");
     }
+
+    // if (formValid) {
+    //   navigate("/page2");
+    // }
   };
 
   return (
