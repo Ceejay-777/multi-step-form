@@ -45,7 +45,9 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
               <img src={image} />
               <div>
                 <h2>{plan}</h2>
-                <p>{price}</p>
+                <p>
+                  {price}/{monthly ? "mo" : "yr"}
+                </p>
                 <p>{promo}</p>
               </div>
             </div>

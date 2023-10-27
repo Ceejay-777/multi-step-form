@@ -20,7 +20,7 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
   }, [selection]);
 
   const handleSubmit = () => {
-    te("/Page4");
+    navigate("/Page4");
     setPage3Vals(selection);
   };
 
