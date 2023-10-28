@@ -46,7 +46,7 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
               <div>
                 <h2>{plan}</h2>
                 <p>
-                  {price}/{monthly ? "mo" : "yr"}
+                  ${price}/{monthly ? "mo" : "yr"}
                 </p>
                 <p>{promo}</p>
               </div>

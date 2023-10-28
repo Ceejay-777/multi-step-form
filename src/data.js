@@ -4,28 +4,28 @@ import advancedIcon from "../assets/images/icon-advanced.svg";
 import proIcon from "../assets/images/icon-pro.svg";
 
 export const monthlyPlan = [
-  { image: arcadeIcon, plan: "Arcade", price: "$9/mo" },
-  { image: advancedIcon, plan: "Advanced", price: "$12/mo" },
-  { image: proIcon, plan: "Pro", price: "$15/mo" },
+  { image: arcadeIcon, plan: "Arcade", price: "9" },
+  { image: advancedIcon, plan: "Advanced", price: "12" },
+  { image: proIcon, plan: "Pro", price: "15" },
 ];
 
 export const yearlyPlan = [
   {
     image: arcadeIcon,
     plan: "Arcade",
-    price: "$90/yr",
+    price: "90",
     promo: "2 months free",
   },
   {
     image: advancedIcon,
     plan: "Advanced",
-    price: "$120/yr",
+    price: "120",
     promo: "2 months free",
   },
   {
     image: proIcon,
     plan: "Pro",
-    price: "$150/yr",
+    price: "150",
     promo: "2 months free",
   },
 ];
