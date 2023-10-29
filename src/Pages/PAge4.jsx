@@ -6,11 +6,26 @@ const Page4 = ({ page2Vals, page3Vals }) => {
   const navigate = useNavigate();
   // console.log(page3Vals);
   const [period] = usePeriodContext();
-  const [total, setTotal] = useState(0);
-  const num = "0";
-  // console.log(parseInt(num));
+  const [total, setTotal] = useState();
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    let runningTotal = 0;
+    if (page3Vals) {
+      page3Vals.forEach((addon) => {
+        const splited = addon.split(",");
+        const currentNum = parseInt(splited[1]);
+        console.log(currentNum);
+        runningTotal += currentNum;
+        console.log(runningTotal);
+      });
+    }
+    // setTotal(total + parseInt(page2Vals.price));
+    runningTotal += parseInt(page2Vals.price);
+    setTotal(runningTotal);
+
+    console.log(total);
+  }, [page2Vals, page3Vals]);
+
   return (
     <div>
       <h1>Finishing up</h1>
@@ -34,8 +49,6 @@ const Page4 = ({ page2Vals, page3Vals }) => {
         {page3Vals
           ? page3Vals.map((addon) => {
               const splitAddons = addon.split(",");
-              setTotal(total + parseInt(splitAddons[1]));
-              // console.log(parseInt(splitAddons[1]));
               return (
                 <div key={addon}>
                   <div>{splitAddons[0]}</div>
@@ -48,6 +61,8 @@ const Page4 = ({ page2Vals, page3Vals }) => {
         <br />
         <hr />
         <br />
+
+        <p>{total}</p>
       </div>
     </div>
   );
