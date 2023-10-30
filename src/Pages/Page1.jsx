@@ -7,6 +7,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
   const [submitted, setSubmitted] = useState(false);
   const currentLocation = useLocation();
   const [formValid, setFormValid] = useState(false);
+  const [formTouched, setFormTouched] = useState(false);
 
   const [namefield, setNamefield] = useState({
     value: page1Vals.nameVal,
@@ -23,11 +24,11 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
     isError: false,
     errorMessage: "",
   });
-  const [fieldErrors, setFieldErrors] = useState({
-    nameError: false,
-    emailError: false,
-    phoneError: false,
-  });
+  // const [fieldErrors, setFieldErrors] = useState({
+  //   nameError: false,
+  //   emailError: false,
+  //   phoneError: false,
+  // });
 
   useEffect(() => {
     //   namefield.value = page1Vals.nameVal;
@@ -37,8 +38,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
     //   Object.values(namefield).some((attribute) => attribute) ||
     //   Object.values(emailfield).some((attribute) => attribute) ||
     //   Object.values(phonefield).some((attribute) => attribute);
-
-    const hasErrors = setFormValid(!hasErrors);
+    // const hasErrors = setFormValid(!hasErrors);
   }, [namefield, emailfield, phonefield]);
 
   const handleInputChange = (event) => {
@@ -56,7 +56,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
     if (!namefield.value) {
       setNamefield({
         ...namefield,
-        nameError: true,
+        isError: true,
         errorMessage: "This field is required",
       });
       // setFieldErrors({
@@ -131,11 +131,13 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
     validateEmail();
     validatePhone();
 
-    if (formValid) {
+    if (
+      formTouched &&
+      (!namefield.isError || !emailfield.isError || !phonefield.isError)
+    ) {
       // setFormValid(true);
       console.log("submitted");
       // console.log(namefield.isError, emailfield.isError, phonefield.isError);
-      // console.log(Object.values(namefield).some((attribute) => attribute));
 
       setPage1Vals({
         nameVal: namefield.value,
@@ -143,13 +145,8 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
         phoneVal: phonefield.value,
       });
 
-      // setTimeout(() => navigate("/page2"), 4000);
       navigate("/page2");
     }
-
-    // if (formValid) {
-    //   navigate("/page2");
-    // }
   };
 
   return (
@@ -174,6 +171,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
                 validateName;
               }
             }}
+            onClick={() => setFormTouched(true)}
           />
           <br />
           {namefield.isError && <p>{namefield.errorMessage}</p>}
@@ -195,6 +193,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
                 validateEmail;
               }
             }}
+            onClick={() => setFormTouched(true)}
           />
           <br />
           {emailfield.isError && <p>{emailfield.errorMessage}</p>}
@@ -216,6 +215,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
                 validatePhone;
               }
             }}
+            onClick={() => setFormTouched(true)}
           />
           <br />
           {phonefield.isError && <p>{phonefield.errorMessage}</p>}
