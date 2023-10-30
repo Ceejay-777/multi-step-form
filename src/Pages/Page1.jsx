@@ -10,14 +10,17 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
 
   const [namefield, setNamefield] = useState({
     value: page1Vals.nameVal,
+    isError: false,
     errorMessage: "",
   });
   const [emailfield, setEmailfield] = useState({
     value: page1Vals.emailVal,
+    isError: false,
     errorMessage: "",
   });
   const [phonefield, setPhonefield] = useState({
     value: page1Vals.phoneVal,
+    isError: false,
     errorMessage: "",
   });
   const [fieldErrors, setFieldErrors] = useState({
@@ -30,8 +33,13 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
     //   namefield.value = page1Vals.nameVal;
     //   emailfield.value = page1Vals.emailVal;
     //   phonefield.value = page1Vals.phoneVal;
-    // const hasErrors = Object.values(Pag)
-  }, []);
+    // const hasErrors =
+    //   Object.values(namefield).some((attribute) => attribute) ||
+    //   Object.values(emailfield).some((attribute) => attribute) ||
+    //   Object.values(phonefield).some((attribute) => attribute);
+
+    const hasErrors = setFormValid(!hasErrors);
+  }, [namefield, emailfield, phonefield]);
 
   const handleInputChange = (event) => {
     event.preventDefault();
@@ -48,21 +56,23 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
     if (!namefield.value) {
       setNamefield({
         ...namefield,
+        nameError: true,
         errorMessage: "This field is required",
       });
-      setFieldErrors({
-        ...fieldErrors,
-        nameError: true,
-      });
+      // setFieldErrors({
+      //   ...fieldErrors,
+      //   nameError: true,
+      // });
     } else {
       setNamefield({
         ...namefield,
+        nameError: false,
         errorMessage: "",
       });
-      setFieldErrors({
-        ...fieldErrors,
-        nameError: false,
-      });
+      // setFieldErrors({
+      //   ...fieldErrors,
+      //   nameError: false,
+      // });
     }
     console.log("Validated Name");
   };
@@ -74,10 +84,10 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
         isError: true,
         errorMessage: "This field is required",
       });
-      setFieldErrors({
-        ...fieldErrors,
-        emailError: true,
-      });
+      // setFieldErrors({
+      //   ...fieldErrors,
+      //   emailError: true,
+      // });
     } else if (
       !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(emailfield.value)
     ) {
@@ -121,10 +131,11 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
     validateEmail();
     validatePhone();
 
-    if (!namefield.isError && !emailfield.isError && !phonefield.isError) {
+    if (formValid) {
       // setFormValid(true);
       console.log("submitted");
-      console.log(namefield.isError, emailfield.isError, phonefield.isError);
+      // console.log(namefield.isError, emailfield.isError, phonefield.isError);
+      // console.log(Object.values(namefield).some((attribute) => attribute));
 
       setPage1Vals({
         nameVal: namefield.value,
