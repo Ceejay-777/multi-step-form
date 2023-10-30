@@ -10,24 +10,27 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
 
   const [namefield, setNamefield] = useState({
     value: page1Vals.nameVal,
-    isError: true,
     errorMessage: "",
   });
   const [emailfield, setEmailfield] = useState({
     value: page1Vals.emailVal,
-    isError: true,
     errorMessage: "",
   });
   const [phonefield, setPhonefield] = useState({
     value: page1Vals.phoneVal,
-    isError: true,
     errorMessage: "",
+  });
+  const [fieldErrors, setFieldErrors] = useState({
+    nameError: false,
+    emailError: false,
+    phoneError: false,
   });
 
   useEffect(() => {
     //   namefield.value = page1Vals.nameVal;
     //   emailfield.value = page1Vals.emailVal;
     //   phonefield.value = page1Vals.phoneVal;
+    // const hasErrors = Object.values(Pag)
   }, []);
 
   const handleInputChange = (event) => {
@@ -45,14 +48,20 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
     if (!namefield.value) {
       setNamefield({
         ...namefield,
-        isError: true,
         errorMessage: "This field is required",
+      });
+      setFieldErrors({
+        ...fieldErrors,
+        nameError: true,
       });
     } else {
       setNamefield({
         ...namefield,
-        isError: false,
         errorMessage: "",
+      });
+      setFieldErrors({
+        ...fieldErrors,
+        nameError: false,
       });
     }
     console.log("Validated Name");
@@ -64,6 +73,10 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
         ...emailfield,
         isError: true,
         errorMessage: "This field is required",
+      });
+      setFieldErrors({
+        ...fieldErrors,
+        emailError: true,
       });
     } else if (
       !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(emailfield.value)
