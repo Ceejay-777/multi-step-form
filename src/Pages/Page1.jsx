@@ -19,11 +19,11 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
     isError: false,
     errorMessage: "",
   });
-  const [phonefield, setPhonefield] = useState({
-    value: page1Vals.phoneVal,
-    isError: false,
-    errorMessage: "",
-  });
+  // const [phonefield, setPhonefield] = useState({
+  //   value: page1Vals.phoneVal,
+  //   isError: false,
+  //   errorMessage: "",
+  // });
   // const [fieldErrors, setFieldErrors] = useState({
   //   nameError: false,
   //   emailError: false,
