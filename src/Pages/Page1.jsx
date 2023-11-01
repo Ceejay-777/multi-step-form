@@ -19,11 +19,11 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
     isError: false,
     errorMessage: "",
   });
-  // const [phonefield, setPhonefield] = useState({
-  //   value: page1Vals.phoneVal,
-  //   isError: false,
-  //   errorMessage: "",
-  // });
+  const [phonefield, setPhonefield] = useState({
+    value: page1Vals.phoneVal,
+    isError: false,
+    errorMessage: "",
+  });
   // const [fieldErrors, setFieldErrors] = useState({
   //   nameError: false,
   //   emailError: false,
@@ -39,7 +39,10 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
     //   Object.values(emailfield).some((attribute) => attribute) ||
     //   Object.values(phonefield).some((attribute) => attribute);
     // const hasErrors = setFormValid(!hasErrors);
-  }, [namefield, emailfield, phonefield]);
+    if (namefield || emailfield || phonefield) {
+      setFormTouched(false);
+    }
+  }, []);
 
   const handleInputChange = (event) => {
     event.preventDefault();
@@ -59,22 +62,13 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
         isError: true,
         errorMessage: "This field is required",
       });
-      // setFieldErrors({
-      //   ...fieldErrors,
-      //   nameError: true,
-      // });
     } else {
       setNamefield({
         ...namefield,
         nameError: false,
         errorMessage: "",
       });
-      // setFieldErrors({
-      //   ...fieldErrors,
-      //   nameError: false,
-      // });
     }
-    console.log("Validated Name");
   };
 
   const validateEmail = () => {
@@ -84,10 +78,6 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
         isError: true,
         errorMessage: "This field is required",
       });
-      // setFieldErrors({
-      //   ...fieldErrors,
-      //   emailError: true,
-      // });
     } else if (
       !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(emailfield.value)
     ) {
@@ -103,7 +93,6 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
         errorMessage: "",
       });
     }
-    console.log("Validated Email");
   };
 
   const validatePhone = () => {
