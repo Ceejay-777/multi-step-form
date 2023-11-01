@@ -6,7 +6,6 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
   const navigate = useNavigate();
   const [submitted, setSubmitted] = useState(false);
   const currentLocation = useLocation();
-  const [formValid, setFormValid] = useState(false);
   const [formTouched, setFormTouched] = useState(false);
 
   const [namefield, setNamefield] = useState({
@@ -39,10 +38,10 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
     //   Object.values(emailfield).some((attribute) => attribute) ||
     //   Object.values(phonefield).some((attribute) => attribute);
     // const hasErrors = setFormValid(!hasErrors);
-    if (namefield || emailfield || phonefield) {
-      setFormTouched(false);
+    if (namefield.value || emailfield.value || phonefield.value) {
+      setFormTouched(true);
     }
-  }, []);
+  }, [currentLocation]);
 
   const handleInputChange = (event) => {
     event.preventDefault();
@@ -65,7 +64,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
     } else {
       setNamefield({
         ...namefield,
-        nameError: false,
+        isError: false,
         errorMessage: "",
       });
     }
@@ -109,7 +108,6 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
         errorMessage: "",
       });
     }
-    console.log("Validated Phone");
   };
 
   const handleSubmit = (event) => {
@@ -157,7 +155,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
             onChange={handleInputChange}
             onBlur={() => {
               if (submitted) {
-                validateName;
+                validateName();
               }
             }}
             onClick={() => setFormTouched(true)}
@@ -179,7 +177,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
             onChange={handleInputChange}
             onBlur={() => {
               if (submitted) {
-                validateEmail;
+                validateEmail();
               }
             }}
             onClick={() => setFormTouched(true)}
@@ -201,7 +199,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
             onChange={handleInputChange}
             onBlur={() => {
               if (submitted) {
-                validatePhone;
+                validatePhone();
               }
             }}
             onClick={() => setFormTouched(true)}

@@ -1,13 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Page1 from "../pages/Page1";
 import Page2 from "../pages/Page2";
 import Page3 from "../pages/Page3";
 import Page4 from "../pages/Page4";
 import SharedLayout from "./SharedLayout";
+import { usePeriodContext } from "../context/periodContext";
 
 const MyRoutes = () => {
+  const [period, setPeriod] = usePeriodContext();
   const [page1Vals, setPage1Vals] = useState({
     nameVal: "",
     emailVal: "",
@@ -15,6 +17,16 @@ const MyRoutes = () => {
   });
   const [page2Vals, setPage2Vals] = useState({});
   const [page3Vals, setPage3Vals] = useState([]);
+
+  useEffect(() => {
+    setPage1Vals({
+      nameVal: "",
+      emailVal: "",
+      phoneVal: "",
+    });
+    setPage2Vals({});
+    setPage3Vals([]);
+  }, [period]);
 
   return (
     <Router>
