@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { usePeriodContext } from "../context/periodContext";
 import { useNavigate } from "react-router-dom";
 
 const Page4 = ({ page2Vals, page3Vals }) => {
   const navigate = useNavigate();
-  // console.log(page3Vals);
-  const [period] = usePeriodContext();
   const [total, setTotal] = useState();
 
   useEffect(() => {
@@ -14,12 +11,9 @@ const Page4 = ({ page2Vals, page3Vals }) => {
       page3Vals.forEach((addon) => {
         const splited = addon.split(",");
         const currentNum = parseInt(splited[1]);
-        console.log(currentNum);
         runningTotal += currentNum;
-        console.log(runningTotal);
       });
     }
-    // setTotal(total + parseInt(page2Vals.price));
     runningTotal += parseInt(page2Vals.price);
     setTotal(runningTotal);
 

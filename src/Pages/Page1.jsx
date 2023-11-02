@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import PeriodSwitch from "../components/PeriodSwitch";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Page1 = ({ page1Vals, setPage1Vals }) => {
   const navigate = useNavigate();
@@ -23,21 +22,8 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
     isError: false,
     errorMessage: "",
   });
-  // const [fieldErrors, setFieldErrors] = useState({
-  //   nameError: false,
-  //   emailError: false,
-  //   phoneError: false,
-  // });
 
   useEffect(() => {
-    //   namefield.value = page1Vals.nameVal;
-    //   emailfield.value = page1Vals.emailVal;
-    //   phonefield.value = page1Vals.phoneVal;
-    // const hasErrors =
-    //   Object.values(namefield).some((attribute) => attribute) ||
-    //   Object.values(emailfield).some((attribute) => attribute) ||
-    //   Object.values(phonefield).some((attribute) => attribute);
-    // const hasErrors = setFormValid(!hasErrors);
     if (namefield.value || emailfield.value || phonefield.value) {
       setFormTouched(true);
     }
@@ -122,10 +108,6 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
       formTouched &&
       (!namefield.isError || !emailfield.isError || !phonefield.isError)
     ) {
-      // setFormValid(true);
-      console.log("submitted");
-      // console.log(namefield.isError, emailfield.isError, phonefield.isError);
-
       setPage1Vals({
         nameVal: namefield.value,
         emailVal: emailfield.value,
@@ -208,11 +190,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
           {phonefield.isError && <p>{phonefield.errorMessage}</p>}
         </div>
 
-        <button
-          type="submit"
-          className="p-1 border-2"
-          // onClick={() => setSubmitted(true)}
-        >
+        <button type="submit" className="p-1 border-2">
           Next
         </button>
       </form>

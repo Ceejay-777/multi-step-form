@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import PeriodSwitch from "../components/PeriodSwitch";
 import { usePeriodContext } from "../context/periodContext";
 import { monthlyPlan, yearlyPlan } from "../data";
@@ -16,14 +16,9 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
       setError(true);
       return;
     }
-    console.log("okay");
     setPage2Vals(currentPlan);
     navigate("/page3");
   };
-
-  useEffect(() => {
-    console.log(currentPlan);
-  }, [currentPlan]);
 
   return (
     <div>

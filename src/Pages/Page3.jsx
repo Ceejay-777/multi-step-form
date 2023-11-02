@@ -8,11 +8,9 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
   const navigate = useNavigate();
   const [monthly, setMonthly] = usePeriodContext();
   const [selection, setSelection] = useState(page3Vals);
-  // const [error, setError] = useState(false);
 
   useEffect(() => {
     if (selection) {
-      console.log(selection);
       if (selection.length == 0) {
         setSelection(null);
       }
@@ -42,7 +40,6 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
 
   return (
     <div>
-      {/* {error && <p className="bg-red-600">Error</p>} */}
       <div>
         {addons.map((singleAddon, index) => {
           const { addon, perk, monthlyPrice, yearlyPrice } = singleAddon;
@@ -78,7 +75,6 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
           Next Step
         </button>
       </div>
-      {/* <PeriodSwitch /> */}
     </div>
   );
 };
