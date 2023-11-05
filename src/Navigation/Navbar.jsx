@@ -1,16 +1,15 @@
 import React from "react";
 import { navlinks } from "../data";
-import Navlink from "../components/Navlink";
+import { useLocation } from "react-router-dom";
+// import Navlink from "../components/Navlink";\
 
 const Navbar = () => {
+  const currentLoacation = useLocation();
   return (
     <nav>
       {navlinks.map((navlink, index) => {
-        return (
-          <Navlink key={index} location={`Page${navlink}`}>
-            {navlink}
-          </Navlink>
-        );
+        const current = currentLoacation[-1] === navlink;
+        return <div className="">{navlink}</div>;
       })}
     </nav>
   );
