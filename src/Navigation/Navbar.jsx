@@ -9,7 +9,13 @@ const Navbar = () => {
     <nav>
       {navlinks.map((navlink, index) => {
         const current = currentLoacation[-1] === navlink;
-        return <div className="">{navlink}</div>;
+        return (
+          <div
+            className={`width-4 rounded-full border-orange-800 border-2 p-2`}
+          >
+            {navlink}
+          </div>
+        );
       })}
     </nav>
   );
