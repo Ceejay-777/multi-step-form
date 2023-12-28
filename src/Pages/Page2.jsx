@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PeriodSwitch from "../components/PeriodSwitch";
 import { usePeriodContext } from "../context/periodContext";
 import { monthlyPlan, yearlyPlan } from "../data";
@@ -11,8 +11,12 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
   const [monthly] = usePeriodContext();
   const planToUse = monthly ? monthlyPlan : yearlyPlan;
 
+  // useEffect(() => {
+  //   console.log(currentPlan);
+  // }, []);
+
   const handleSubmit = () => {
-    if (!currentPlan) {
+    if (!currentPlan.plan) {
       setError(true);
       return;
     }

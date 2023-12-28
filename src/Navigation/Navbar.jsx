@@ -4,16 +4,32 @@ import { useLocation } from "react-router-dom";
 // import Navlink from "../components/Navlink";\
 
 const Navbar = () => {
-  const currentLoacation = useLocation();
+  const currentLocation = useLocation();
   return (
     <nav>
       {navlinks.map((navlink, index) => {
-        const current = currentLoacation[-1] === navlink;
+        const current = currentLocation.pathname;
+        const currentLength = current.length;
+        let lastChar = current.charAt(currentLength - 1);
+        if (lastChar === "/") {
+          lastChar = "1";
+        }
+        // console.log(lastChar);
         return (
           <div
-            className={`width-4 rounded-full border-orange-800 border-2 p-2`}
+            key={index}
+            className={`w-8 h-8 border-pastelBlue border-2 text-center my-4  rounded-full ${
+              lastChar == navlink ? "bg-pastelBlue" : "bg-none"
+              // currentStyle
+            }`}
           >
-            {navlink}
+            <p
+              className={`font-bold  ${
+                lastChar == navlink ? "text-marineBlue" : "text-pastelBlue"
+              } `}
+            >
+              {navlink}
+            </p>
           </div>
         );
       })}
