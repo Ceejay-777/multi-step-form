@@ -3,6 +3,7 @@ import { addons } from "../data";
 import { usePeriodContext } from "../context/periodContext";
 import check from "../../assets/images/icon-checkmark.svg";
 import { useNavigate } from "react-router-dom";
+import PeriodSwitch from "../components/PeriodSwitch";
 
 const Page3 = ({ page3Vals, setPage3Vals }) => {
   const navigate = useNavigate();

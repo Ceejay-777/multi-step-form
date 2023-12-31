@@ -40,17 +40,19 @@ const Page4 = ({ page2Vals, page3Vals }) => {
         <hr />
         <br />
 
-        {page3Vals
-          ? page3Vals.map((addon) => {
-              const splitAddons = addon.split(",");
-              return (
-                <div key={addon}>
-                  <div>{splitAddons[0]}</div>
-                  <div>{splitAddons[1]}</div>
-                </div>
-              );
-            })
-          : null}
+        {page3Vals ? (
+          page3Vals.map((addon) => {
+            const splitAddons = addon.split(",");
+            return (
+              <div key={addon}>
+                <div>{splitAddons[0]}</div>
+                <div>{splitAddons[1]}</div>
+              </div>
+            );
+          })
+        ) : (
+          <p>No addons selected</p>
+        )}
 
         <br />
         <hr />

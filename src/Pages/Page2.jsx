@@ -16,7 +16,7 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
   }, []);
 
   useEffect(() => {
-    setPage2Vals({});
+    setCurrentPlan(page2Vals);
   }, [monthly]);
 
   const handleSubmit = () => {
