@@ -3,7 +3,6 @@ import advancedIcon from "../assets/images/icon-advanced.svg";
 import proIcon from "../assets/images/icon-pro.svg";
 
 export const navlinks = [1, 2, 3, 4];
-
 export const monthlyPlan = [
   { image: arcadeIcon, plan: "Arcade", price: "9" },
   { image: advancedIcon, plan: "Advanced", price: "12" },

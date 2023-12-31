@@ -9,7 +9,7 @@ import SharedLayout from "./SharedLayout";
 import { usePeriodContext } from "../context/periodContext";
 
 const MyRoutes = () => {
-  const [period, setPeriod] = usePeriodContext();
+  const [monthly, setMonthly] = usePeriodContext();
   const [page1Vals, setPage1Vals] = useState({
     nameVal: "",
     emailVal: "",
@@ -26,7 +26,8 @@ const MyRoutes = () => {
     });
     setPage2Vals({});
     setPage3Vals([]);
-  }, [period]);
+    console.log(page2Vals, page3Vals);
+  }, [monthly]);
 
   return (
     <Router>

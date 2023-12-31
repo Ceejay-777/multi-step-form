@@ -20,14 +20,14 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
   }, [selection]);
 
   const handleSubmit = () => {
-    if (!selection) {
-      setError(true);
-      return;
-    } else {
-      setError(false);
-      navigate("/Page4");
-      setPage3Vals(selection);
-    }
+    // if (!selection) {
+    //   setError(true);
+    //   return;
+    // } else {
+    //   setError(false);
+    navigate("/Page4");
+    setPage3Vals(selection);
+    // }
   };
 
   const handleSelection = (event) => {
@@ -59,7 +59,7 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
               className="p-4 border-2 my-2"
               onClick={handleSelection}
               key={index}
-              datavals={[addon]}
+              datavals={[addon, currentPrice]}
             >
               <div className="bg-purpleBlue p-1 border-2 w-4 aspect-square box-content">
                 <img src={check} className="w-full" />

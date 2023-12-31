@@ -11,9 +11,13 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
   const [monthly] = usePeriodContext();
   const planToUse = monthly ? monthlyPlan : yearlyPlan;
 
-  // useEffect(() => {
-  //   console.log(currentPlan);
-  // }, []);
+  useEffect(() => {
+    console.log(currentPlan);
+  }, []);
+
+  useEffect(() => {
+    setPage2Vals({});
+  }, [monthly]);
 
   const handleSubmit = () => {
     if (!currentPlan.plan) {
