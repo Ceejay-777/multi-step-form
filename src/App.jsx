@@ -1,5 +1,5 @@
 import { useState } from "react";
-import MyRoutes from "./Navigation/MyRoutes";
+import MyRoutes from "./navigation/MyRoutes.jsx";
 
 function App() {
   return (
