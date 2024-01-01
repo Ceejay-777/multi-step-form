@@ -9,7 +9,6 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
   const navigate = useNavigate();
   const [monthly, setMonthly] = usePeriodContext();
   const [selection, setSelection] = useState(page3Vals);
-  const [error, setError] = useState(false);
 
   useEffect(() => {
     if (selection) {
@@ -17,19 +16,11 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
         setSelection(null);
       }
     }
-
-    console.log(selection);
   }, [selection]);
 
   const handleSubmit = () => {
-    // if (!selection) {
-    //   setError(true);
-    //   return;
-    // } else {
-    //   setError(false);
     navigate("/Page4");
     setPage3Vals(selection);
-    // }
   };
 
   const handleSelection = (event) => {
@@ -48,29 +39,27 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
     }
   };
 
-  const handleClick = (event) => {
-    const clicked = event.target.currentTarget;
-  };
-
   return (
     <div>
-      {error && <div className="bg-red-600">Error</div>}
-
       <div>
         {addons.map((singleAddon, index) => {
           const { addon, perk, monthlyPrice, yearlyPrice } = singleAddon;
           const currentPrice = monthly ? monthlyPrice : yearlyPrice;
+          const combined = addon + "," + currentPrice;
+          const clickedThis =
+            selection !== null && selection.includes(combined);
           return (
             <div
               className="p-4 border-2 my-2"
-              onClick={() => {
-                handleSelection;
-                handleClick;
-              }}
+              onClick={handleSelection}
               key={index}
               datavals={[addon, currentPrice]}
             >
-              <div className="bg-purpleBlue p-1 border-2 w-4 aspect-square box-content">
+              <div
+                className={`${
+                  clickedThis ? "bg-purpleBlue" : "bg-transparent"
+                } p-1 w-4 aspect-square box-content rounded-md border-2 border-marineBlue`}
+              >
                 <img src={check} className="w-full" />
               </div>
               <h2>{addon}</h2>

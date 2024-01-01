@@ -16,8 +16,6 @@ const Page4 = ({ page2Vals, page3Vals }) => {
     }
     runningTotal += parseInt(page2Vals.price);
     setTotal(runningTotal);
-
-    console.log(total);
   }, [page2Vals, page3Vals]);
 
   return (

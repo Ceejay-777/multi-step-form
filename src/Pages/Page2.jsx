@@ -38,7 +38,7 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
 
       {planToUse.map((plans, ID) => {
         const { image, plan, price, promo } = plans;
-        const currentStyle = "border-m";
+        const currentStyle = "border-marineBlue";
         return (
           <div
             key={ID}
@@ -47,7 +47,11 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
               setError(false);
             }}
           >
-            <div className="border-2 my-4">
+            <div
+              className={`border-2 my-4 ${
+                currentPlan.plan === plan ? currentStyle : null
+              }`}
+            >
               <img src={image} />
               <div>
                 <h2>{plan}</h2>
