@@ -17,6 +17,7 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
         setSelection(null);
       }
     }
+
     console.log(selection);
   }, [selection]);
 
@@ -47,6 +48,10 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
     }
   };
 
+  const handleClick = (event) => {
+    const clicked = event.target.currentTarget;
+  };
+
   return (
     <div>
       {error && <div className="bg-red-600">Error</div>}
@@ -58,7 +63,10 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
           return (
             <div
               className="p-4 border-2 my-2"
-              onClick={handleSelection}
+              onClick={() => {
+                handleSelection;
+                handleClick;
+              }}
               key={index}
               datavals={[addon, currentPrice]}
             >
@@ -68,6 +76,7 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
               <h2>{addon}</h2>
               <p>{perk}</p>
               <p>{monthly ? `$${monthlyPrice}/mo` : `$${yearlyPrice}/yr`}</p>
+              {monthly || <p>2 months free</p>}
             </div>
           );
         })}

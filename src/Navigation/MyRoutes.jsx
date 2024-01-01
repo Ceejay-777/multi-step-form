@@ -26,7 +26,7 @@ const MyRoutes = () => {
     });
     setPage2Vals({});
     setPage3Vals([]);
-    console.log(page2Vals, page3Vals);
+    // console.log(page2Vals, page3Vals);
   }, [monthly]);
 
   return (

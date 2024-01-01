@@ -15,6 +15,8 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
     console.log(currentPlan);
   }, []);
 
+  useEffect(() => {});
+
   useEffect(() => {
     setCurrentPlan(page2Vals);
   }, [monthly]);
@@ -36,6 +38,7 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
 
       {planToUse.map((plans, ID) => {
         const { image, plan, price, promo } = plans;
+        const currentStyle = "border-m";
         return (
           <div
             key={ID}
