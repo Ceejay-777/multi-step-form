@@ -123,8 +123,10 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
   return (
     <div>
       <PageContainer className="bg-white w-11/12 mx-auto rounded-lg p-5">
-        <h1>Personal info</h1>
-        <p>Please provide your name, email address and phone number</p>
+        <h1 className="text-2xl font-bold text-marineBlue">Personal info</h1>
+        <p className="text-coolGray">
+          Please provide your name, email address and phone number.
+        </p>
         <form noValidate>
           <div>
             <label htmlFor="name">Name</label>
@@ -134,7 +136,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
               name="name"
               id="name"
               placeholder="e.g Stephen King"
-              className="w-full border-2"
+              className="w-full border-[1px] p-2 rounded-md"
               value={namefield.value}
               onChange={handleInputChange}
               onBlur={() => {
@@ -155,7 +157,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
               name="email"
               id="email"
               placeholder="e.g. stephenking@lorem.com"
-              className="w-full border-2"
+              className="w-full border-[1px] p-2 rounded-md"
               value={emailfield.value}
               onChange={handleInputChange}
               onBlur={() => {
@@ -176,7 +178,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
               name="phone"
               id="phone"
               placeholder="e.g. +1 234 567 890"
-              className="w-full border-2"
+              className="w-full border-[1px] p-2 rounded-md"
               value={phonefield.value}
               onChange={handleInputChange}
               onBlur={() => {
@@ -193,9 +195,14 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
       </PageContainer>
 
       <ButtonContainer>
-        <button className="p-1 border-2" onClick={handleSubmit}>
-          Next
-        </button>
+        <div className="w-full">
+          <button
+            className="p-1 text-lightGray bg-marineBlue py-2 px-4 rounded-md my-4 font-semibold "
+            onClick={handleSubmit}
+          >
+            Next Step
+          </button>
+        </div>
       </ButtonContainer>
     </div>
   );
