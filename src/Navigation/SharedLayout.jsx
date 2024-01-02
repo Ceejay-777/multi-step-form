@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 const SharedLayout = () => {
   return (
     <div className="relative">
-      <div className="bg-lightBlue min-h-screen w-screen absolute">
+      <div className="bg-magnolia min-h-screen w-screen absolute">
         <div>
           <img
             src="../../assets/images/bg-sidebar-mobile.svg"

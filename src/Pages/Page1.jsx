@@ -123,7 +123,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
   return (
     <div>
       <PageContainer className="bg-white w-11/12 mx-auto rounded-lg p-5">
-        <h1 className="text-2xl font-bold text-marineBlue">Personal info</h1>
+        <h1 className="header-text">Personal info</h1>
         <p className="text-coolGray">
           Please provide your name, email address and phone number.
         </p>

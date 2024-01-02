@@ -3,6 +3,7 @@ import PeriodSwitch from "../components/PeriodSwitch";
 import { usePeriodContext } from "../context/periodContext";
 import { monthlyPlan, yearlyPlan } from "../data";
 import { useNavigate } from "react-router-dom";
+import PageContainer from "../components/PageContainer";
 
 const Page2 = ({ page2Vals, setPage2Vals }) => {
   const navigate = useNavigate();
@@ -10,12 +11,6 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
   const [error, setError] = useState(false);
   const [monthly] = usePeriodContext();
   const planToUse = monthly ? monthlyPlan : yearlyPlan;
-
-  useEffect(() => {
-    console.log(currentPlan);
-  }, []);
-
-  useEffect(() => {});
 
   useEffect(() => {
     setCurrentPlan(page2Vals);
@@ -32,39 +27,43 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
 
   return (
     <div>
-      {error && <div className="bg-red-600">Error</div>}
-      <h1>Select your plan</h1>
-      <p>You have the option of monthly or yearly billing</p>
+      <PageContainer>
+        {error && <div className="bg-red-600">Please select a plan</div>}
+        <h1 className="header-text mb-4">Select your plan</h1>
+        <p className="text-coolGray">
+          You have the option of monthly or yearly billing
+        </p>
 
-      {planToUse.map((plans, ID) => {
-        const { image, plan, price, promo } = plans;
-        const currentStyle = "border-marineBlue";
-        return (
-          <div
-            key={ID}
-            onClick={() => {
-              setCurrentPlan({ plan, price });
-              setError(false);
-            }}
-          >
+        {planToUse.map((plans, ID) => {
+          const { image, plan, price, promo } = plans;
+          const currentStyle = "border-purpleBlue bg-alabaster";
+          return (
             <div
-              className={`border-2 my-4 ${
-                currentPlan.plan === plan ? currentStyle : null
-              }`}
+              key={ID}
+              onClick={() => {
+                setCurrentPlan({ plan, price });
+                setError(false);
+              }}
             >
-              <img src={image} />
-              <div>
-                <h2>{plan}</h2>
-                <p>
-                  ${price}/{monthly ? "mo" : "yr"}
-                </p>
-                <p>{promo}</p>
+              <div
+                className={`border-[1px] my-4 ${
+                  currentPlan.plan === plan ? currentStyle : null
+                } flex gap-4 p-4 rounded-lg`}
+              >
+                <img src={image} />
+                <div>
+                  <h2 className="font-bold text-marineBlue">{plan}</h2>
+                  <p className="text-coolGray font-semibold text-sm">
+                    ${price}/{monthly ? "mo" : "yr"}
+                  </p>
+                  <p>{promo}</p>
+                </div>
               </div>
             </div>
-          </div>
-        );
-      })}
-      <PeriodSwitch />
+          );
+        })}
+        <PeriodSwitch />
+      </PageContainer>
       <div className="flex justify-between px-4 my-2">
         <button
           type="button"

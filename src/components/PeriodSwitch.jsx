@@ -7,7 +7,7 @@ const PeriodSwitch = () => {
   const translation = monthly ? "left-0" : "left-6";
 
   return (
-    <div className="flex gap-6 w-full py-4 border-2 rounded-sm bg-coolGray justify-center">
+    <div className="flex gap-6 w-full py-4 rounded-lg bg-alabaster justify-center">
       <div>Monthly</div>
       <div>
         <div
@@ -17,7 +17,7 @@ const PeriodSwitch = () => {
           }}
         >
           <div
-            className={`w-4 h-4 bg-white rounded-full relative ${translation}`}
+            className={`w-4 h-4 bg-alabaster rounded-full relative ${translation}`}
           ></div>
         </div>
       </div>
