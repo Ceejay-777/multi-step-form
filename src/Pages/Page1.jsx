@@ -197,7 +197,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
       <ButtonContainer>
         <div className="w-full">
           <button
-            className="p-1 text-lightGray bg-marineBlue py-2 px-4 rounded-md my-4 font-semibold "
+            className="p-1 text-lightGray bg-marineBlue py-2 px-4 rounded-md my-4 font-semibold"
             onClick={handleSubmit}
           >
             Next Step

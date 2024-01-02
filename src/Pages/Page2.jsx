@@ -4,6 +4,7 @@ import { usePeriodContext } from "../context/periodContext";
 import { monthlyPlan, yearlyPlan } from "../data";
 import { useNavigate } from "react-router-dom";
 import PageContainer from "../components/PageContainer";
+import ButtonContainer from "../components/ButtonContainer";
 
 const Page2 = ({ page2Vals, setPage2Vals }) => {
   const navigate = useNavigate();
@@ -46,7 +47,7 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
               }}
             >
               <div
-                className={`border-[1px] my-4 ${
+                className={`border-[1px] my-3 ${
                   currentPlan.plan === plan ? currentStyle : null
                 } flex gap-4 p-4 rounded-lg`}
               >
@@ -56,7 +57,9 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
                   <p className="text-coolGray font-semibold text-sm">
                     ${price}/{monthly ? "mo" : "yr"}
                   </p>
-                  <p>{promo}</p>
+                  <p className="text-marineBlue text-xs font-semibold">
+                    {promo}
+                  </p>
                 </div>
               </div>
             </div>
@@ -64,20 +67,26 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
         })}
         <PeriodSwitch />
       </PageContainer>
-      <div className="flex justify-between px-4 my-2">
-        <button
-          type="button"
-          className="p-1 border-2"
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          Go back
-        </button>
-        <button type="button" className="p-1 border-2" onClick={handleSubmit}>
-          Next Step
-        </button>
-      </div>
+      <ButtonContainer>
+        <div className="flex justify-between px-4 my-2">
+          <button
+            type="button"
+            className="text-coolGray font-semibold"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            Go Back
+          </button>
+          <button
+            type="button"
+            className="p-1 text-lightGray bg-marineBlue py-2 px-4 rounded-md my-4 font-semibold"
+            onClick={handleSubmit}
+          >
+            Next Step
+          </button>
+        </div>
+      </ButtonContainer>
     </div>
   );
 };
