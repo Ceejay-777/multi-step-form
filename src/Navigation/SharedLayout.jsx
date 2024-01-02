@@ -1,7 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
-// import mobileBG from "../../assets/images/bg-sidebar-mobile.svg";
 
 const SharedLayout = () => {
   return (
@@ -16,10 +15,10 @@ const SharedLayout = () => {
         </div>
       </div>
       <div className="relative">
-        <div className="flex justify-center">
+        <div className="flex justify-center mb-5">
           <Navbar />
         </div>
-        <div className="bg-white w-">
+        <div>
           <Outlet />
         </div>
       </div>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import PageContainer from "../components/PageContainer";
 
 const Page1 = ({ page1Vals, setPage1Vals }) => {
   const navigate = useNavigate();
@@ -119,7 +120,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
   };
 
   return (
-    <div>
+    <PageContainer className="bg-white w-11/12 mx-auto rounded-lg p-5">
       <h1>Personal info</h1>
       <p>Please provide your name, email address and phone number</p>
 
@@ -194,7 +195,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
           Next
         </button>
       </form>
-    </div>
+    </PageContainer>
   );
 };
 
