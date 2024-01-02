@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import PageContainer from "../components/PageContainer";
+import ButtonContainer from "../components/ButtonContainer";
 
 const Page1 = ({ page1Vals, setPage1Vals }) => {
   const navigate = useNavigate();
@@ -120,82 +121,83 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
   };
 
   return (
-    <PageContainer className="bg-white w-11/12 mx-auto rounded-lg p-5">
-      <h1>Personal info</h1>
-      <p>Please provide your name, email address and phone number</p>
+    <div>
+      <PageContainer className="bg-white w-11/12 mx-auto rounded-lg p-5">
+        <h1>Personal info</h1>
+        <p>Please provide your name, email address and phone number</p>
+        <form noValidate>
+          <div>
+            <label htmlFor="name">Name</label>
+            <br />
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="e.g Stephen King"
+              className="w-full border-2"
+              value={namefield.value}
+              onChange={handleInputChange}
+              onBlur={() => {
+                if (submitted) {
+                  validateName();
+                }
+              }}
+              onClick={() => setFormTouched(true)}
+            />
+            <br />
+            {namefield.isError && <p>{namefield.errorMessage}</p>}
+          </div>
+          <div>
+            <label htmlFor="email">Email Address</label>
+            <br />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="e.g. stephenking@lorem.com"
+              className="w-full border-2"
+              value={emailfield.value}
+              onChange={handleInputChange}
+              onBlur={() => {
+                if (submitted) {
+                  validateEmail();
+                }
+              }}
+              onClick={() => setFormTouched(true)}
+            />
+            <br />
+            {emailfield.isError && <p>{emailfield.errorMessage}</p>}
+          </div>
+          <div>
+            <label htmlFor="name">Phone Number</label>
+            <br />
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              placeholder="e.g. +1 234 567 890"
+              className="w-full border-2"
+              value={phonefield.value}
+              onChange={handleInputChange}
+              onBlur={() => {
+                if (submitted) {
+                  validatePhone();
+                }
+              }}
+              onClick={() => setFormTouched(true)}
+            />
+            <br />
+            {phonefield.isError && <p>{phonefield.errorMessage}</p>}
+          </div>
+        </form>
+      </PageContainer>
 
-      <form onSubmit={handleSubmit} noValidate>
-        <div>
-          <label htmlFor="name">Name</label>
-          <br />
-          <input
-            type="text"
-            name="name"
-            id="name"
-            placeholder="e.g Stephen King"
-            className="w-full border-2"
-            value={namefield.value}
-            onChange={handleInputChange}
-            onBlur={() => {
-              if (submitted) {
-                validateName();
-              }
-            }}
-            onClick={() => setFormTouched(true)}
-          />
-          <br />
-          {namefield.isError && <p>{namefield.errorMessage}</p>}
-        </div>
-
-        <div>
-          <label htmlFor="email">Email Address</label>
-          <br />
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="e.g. stephenking@lorem.com"
-            className="w-full border-2"
-            value={emailfield.value}
-            onChange={handleInputChange}
-            onBlur={() => {
-              if (submitted) {
-                validateEmail();
-              }
-            }}
-            onClick={() => setFormTouched(true)}
-          />
-          <br />
-          {emailfield.isError && <p>{emailfield.errorMessage}</p>}
-        </div>
-
-        <div>
-          <label htmlFor="name">Phone Number</label>
-          <br />
-          <input
-            type="tel"
-            name="phone"
-            id="phone"
-            placeholder="e.g. +1 234 567 890"
-            className="w-full border-2"
-            value={phonefield.value}
-            onChange={handleInputChange}
-            onBlur={() => {
-              if (submitted) {
-                validatePhone();
-              }
-            }}
-            onClick={() => setFormTouched(true)}
-          />
-          <br />
-          {phonefield.isError && <p>{phonefield.errorMessage}</p>}
-        </div>
-
-        <button type="submit" className="p-1 border-2">
+      <ButtonContainer>
+        <button className="p-1 border-2" onClick={handleSubmit}>
           Next
         </button>
-      </form>
-    </PageContainer>
+      </ButtonContainer>
+    </div>
   );
 };
 

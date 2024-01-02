@@ -6,8 +6,4 @@ const PageContainer = ({ children }) => {
   );
 };
 
-const ButtonsContainer = ({ children }) => {
-  return <div className="w-full bg-white">{children}</div>;
-};
-
 export default PageContainer;

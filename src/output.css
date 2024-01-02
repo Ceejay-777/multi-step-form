@@ -534,6 +534,10 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .absolute {
   position: absolute;
 }
@@ -548,6 +552,10 @@ video {
 
 .left-6 {
   left: 1.5rem;
+}
+
+.bottom-0 {
+  bottom: 0px;
 }
 
 .my-2 {
