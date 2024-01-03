@@ -5,6 +5,7 @@ import Page1 from "../pages/Page1";
 import Page2 from "../pages/Page2";
 import Page3 from "../pages/Page3";
 import Page4 from "../pages/Page4";
+import Page5 from "../pages/Page5";
 import SharedLayout from "./SharedLayout";
 import { usePeriodContext } from "../context/periodContext";
 
@@ -53,6 +54,11 @@ const MyRoutes = () => {
           <Route
             path="Page4"
             element={<Page4 page2Vals={page2Vals} page3Vals={page3Vals} />}
+          />
+        </Route>
+          <Route
+            path="Page5"
+            element={<Page5/>}
           />
         </Route>
       </Routes>

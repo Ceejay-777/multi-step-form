@@ -35,7 +35,9 @@ label {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
-
+.confirm {
+  background-color: hsl(243, 100%, 62%);
+}
 /* .navball {
     border-width: 2px 2px;
 } */

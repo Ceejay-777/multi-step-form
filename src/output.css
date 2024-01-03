@@ -772,6 +772,10 @@ video {
   padding: 0.5rem;
 }
 
+.p-3 {
+  padding: 0.75rem;
+}
+
 .p-4 {
   padding: 1rem;
 }
@@ -784,18 +788,9 @@ video {
   padding: 1.75rem;
 }
 
-.p-3 {
-  padding: 0.75rem;
-}
-
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
-}
-
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
 }
 
 .py-4 {
@@ -832,11 +827,6 @@ video {
 .text-coolGray {
   --tw-text-opacity: 1;
   color: hsl(231 11% 63% / var(--tw-text-opacity));
-}
-
-.text-lightGray {
-  --tw-text-opacity: 1;
-  color: hsl(229 24% 87% / var(--tw-text-opacity));
 }
 
 .text-marineBlue {
@@ -890,6 +880,10 @@ label {
   border-radius: 0.375rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+.confirm {
+  background-color: hsl(243, 100%, 62%);
 }
 
 /* .navball {

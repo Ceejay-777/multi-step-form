@@ -60,14 +60,24 @@ const Page4 = ({ page2Vals, page3Vals }) => {
         <p>{total}</p>
       </PageContainer>
       <ButtonContainer>
-        <button
-          onClick={() => {
-            navigate("/Page3");
-          }}
-        >
-          Go Back
-        </button>
-        <button></button>
+        <div className="flex justify-between px-4 my-2">
+          <button
+            onClick={() => {
+              navigate("/Page3");
+            }}
+            className="text-coolGray font-semibold"
+          >
+            Go Back
+          </button>
+          <button
+            onClick={() => {
+              navigate("/Page5");
+            }}
+            className="next-button confirm "
+          >
+            Confirm
+          </button>
+        </div>
       </ButtonContainer>
     </div>
   );
