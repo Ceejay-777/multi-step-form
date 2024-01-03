@@ -142,7 +142,9 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
               name="name"
               id="name"
               placeholder="e.g Stephen King"
-              className="w-full border-[1px] p-2 rounded-md mb-2 hover:"
+              className={`w-full border-[1px] p-2 rounded-md mb-2 hover:border-purpleBlue hover:cursor-pointer ${
+                namefield.isError && "border-strawberryRed"
+              }`}
               value={namefield.value}
               onChange={handleInputChange}
               onBlur={() => {
@@ -153,11 +155,12 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
               onClick={() => setFormTouched(true)}
             />
           </div>
+
           <div>
             <div className="flex justify-between mb-1">
               <label htmlFor="email">Email Address</label>
               {emailfield.isError && (
-                <p className="font-semibold text-strawberryRed text-sm">
+                <p className="font-semibold text-strawberryRed text-sm ">
                   {emailfield.errorMessage}
                 </p>
               )}
@@ -168,7 +171,9 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
               name="email"
               id="email"
               placeholder="e.g. stephenking@lorem.com"
-              className="w-full border-[1px] p-2 rounded-md mb-2"
+              className={`w-full border-[1px] p-2 rounded-md mb-2 hover:border-purpleBlue hover:cursor-pointer ${
+                emailfield.isError && "border-strawberryRed"
+              }`}
               value={emailfield.value}
               onChange={handleInputChange}
               onBlur={() => {
@@ -179,6 +184,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
               onClick={() => setFormTouched(true)}
             />
           </div>
+
           <div>
             <div className="flex justify-between mb-1">
               <label htmlFor="name">Phone Number</label>
@@ -194,7 +200,9 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
               name="phone"
               id="phone"
               placeholder="e.g. +1 234 567 890"
-              className="w-full border-[1px] p-2 rounded-md mb-2"
+              className={`w-full border-[1px] p-2 rounded-md mb-2 hover:border-purpleBlue hover:cursor-pointer active:border-purpleBlue ${
+                phonefield.isError && "border-strawberryRed"
+              }`}
               value={phonefield.value}
               onChange={handleInputChange}
               onBlur={() => {
