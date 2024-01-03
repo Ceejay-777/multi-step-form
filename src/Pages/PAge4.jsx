@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PageContainer from "../components/PageContainer";
 import ButtonContainer from "../components/ButtonContainer";
+import { usePeriodContext } from "../context/periodContext";
 
 const Page4 = ({ page2Vals, page3Vals }) => {
   const navigate = useNavigate();
   const [total, setTotal] = useState();
+  const [monthly] = usePeriodContext();
 
   useEffect(() => {
     let runningTotal = 0;
@@ -28,39 +30,54 @@ const Page4 = ({ page2Vals, page3Vals }) => {
           Double-check everything looks OK before confirming
         </p>
 
-        <div className="rounded-sm bg-alabaster p-3">
-          <p>{page2Vals.plan}</p>
-          <button type="button" onClick={() => navigate("/Page2")}>
-            change
-          </button>
-          <p>{page2Vals.price}</p>
+        <div className="rounded-lg bg-alabaster p-4 text-sm my-8">
+          <div className="flex justify-between items-center mb-4">
+            <div>
+              <p className="font-semibold text-marineBlue">
+                {page2Vals.plan} ({`${monthly ? "Monthly" : "Yearly"}`})
+              </p>
+              <button
+                type="button"
+                onClick={() => navigate("/Page2")}
+                className="underline text-coolGray font-semibold"
+              >
+                Change
+              </button>
+            </div>
+            <p className="text-marineBlue font-semibold">
+              ${page2Vals.price}/{`${monthly ? "mo" : "yr"}`}
+            </p>
+          </div>
 
-          <br />
           <hr />
-          <br />
 
           {page3Vals ? (
-            page3Vals.map((addon) => {
-              const splitAddons = addon.split(",");
+            page3Vals.map((addons) => {
+              const [addon, price] = addons.split(",");
               return (
-                <div key={addon}>
-                  <div>{splitAddons[0]}</div>
-                  <div>{splitAddons[1]}</div>
+                <div key={addons} className="flex justify-between mt-4">
+                  <p className="text-coolGray">{addon}</p>
+                  <p className="text-marineBlue">
+                    +${price}/{`${monthly ? "mo" : "yr"}`}
+                  </p>
                 </div>
               );
             })
           ) : (
             <p>No addons selected</p>
           )}
-
-          <br />
-          <hr />
-          <br />
         </div>
-        <p>{total}</p>
+        <div className="flex justify-between px-4">
+          <p className="text-sm text-coolGray">
+            Total (per {`${monthly ? "month" : "year"}`})
+          </p>
+          <p className="font-semibold text-purpleBlue">
+            +${total}/{`${monthly ? "mo" : "yr"}`}
+          </p>
+        </div>
       </PageContainer>
       <ButtonContainer>
-        <div className="flex justify-between px-4 my-2">
+        <div className="flex justify-between px-4">
           <button
             onClick={() => {
               navigate("/Page3");

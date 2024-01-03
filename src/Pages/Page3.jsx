@@ -89,7 +89,7 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
         </div>
       </PageContainer>
       <ButtonContainer>
-        <div className="flex justify-between px-4 my-2">
+        <div className="flex justify-between px-4">
           <button
             type="button"
             className="text-coolGray font-semibold"

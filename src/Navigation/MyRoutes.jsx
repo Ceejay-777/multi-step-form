@@ -55,11 +55,7 @@ const MyRoutes = () => {
             path="Page4"
             element={<Page4 page2Vals={page2Vals} page3Vals={page3Vals} />}
           />
-        </Route>
-          <Route
-            path="Page5"
-            element={<Page5/>}
-          />
+          <Route path="Page5" element={<Page5 />} />
         </Route>
       </Routes>
     </Router>
