@@ -31,7 +31,7 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
       <PageContainer>
         {error && <div className="bg-red-600">Please select a plan</div>}
         <h1 className="header-text mb-4">Select your plan</h1>
-        <p className="text-coolGray">
+        <p className="text-coolGray mb-2">
           You have the option of monthly or yearly billing
         </p>
 

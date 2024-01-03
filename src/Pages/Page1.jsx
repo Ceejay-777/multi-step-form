@@ -124,19 +124,25 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
     <div>
       <PageContainer className="bg-white w-11/12 mx-auto rounded-lg p-5">
         <h1 className="header-text">Personal info</h1>
-        <p className="text-coolGray">
+        <p className="text-coolGray mb-2">
           Please provide your name, email address and phone number.
         </p>
         <form noValidate>
           <div>
-            <label htmlFor="name">Name</label>
-            <br />
+            <div className="flex justify-between mb-1">
+              <label htmlFor="name">Name</label>
+              {namefield.isError && (
+                <p className="font-semibold text-strawberryRed text-sm">
+                  {namefield.errorMessage}
+                </p>
+              )}
+            </div>
             <input
               type="text"
               name="name"
               id="name"
               placeholder="e.g Stephen King"
-              className="w-full border-[1px] p-2 rounded-md"
+              className="w-full border-[1px] p-2 rounded-md mb-2 hover:"
               value={namefield.value}
               onChange={handleInputChange}
               onBlur={() => {
@@ -146,18 +152,23 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
               }}
               onClick={() => setFormTouched(true)}
             />
-            <br />
-            {namefield.isError && <p>{namefield.errorMessage}</p>}
           </div>
           <div>
-            <label htmlFor="email">Email Address</label>
-            <br />
+            <div className="flex justify-between mb-1">
+              <label htmlFor="email">Email Address</label>
+              {emailfield.isError && (
+                <p className="font-semibold text-strawberryRed text-sm">
+                  {emailfield.errorMessage}
+                </p>
+              )}
+            </div>
+
             <input
               type="email"
               name="email"
               id="email"
               placeholder="e.g. stephenking@lorem.com"
-              className="w-full border-[1px] p-2 rounded-md"
+              className="w-full border-[1px] p-2 rounded-md mb-2"
               value={emailfield.value}
               onChange={handleInputChange}
               onBlur={() => {
@@ -167,18 +178,23 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
               }}
               onClick={() => setFormTouched(true)}
             />
-            <br />
-            {emailfield.isError && <p>{emailfield.errorMessage}</p>}
           </div>
           <div>
-            <label htmlFor="name">Phone Number</label>
-            <br />
+            <div className="flex justify-between mb-1">
+              <label htmlFor="name">Phone Number</label>
+              {phonefield.isError && (
+                <p className="font-semibold text-strawberryRed text-sm">
+                  {phonefield.errorMessage}
+                </p>
+              )}
+            </div>
+
             <input
               type="tel"
               name="phone"
               id="phone"
               placeholder="e.g. +1 234 567 890"
-              className="w-full border-[1px] p-2 rounded-md"
+              className="w-full border-[1px] p-2 rounded-md mb-2"
               value={phonefield.value}
               onChange={handleInputChange}
               onBlur={() => {
@@ -188,14 +204,13 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
               }}
               onClick={() => setFormTouched(true)}
             />
-            <br />
-            {phonefield.isError && <p>{phonefield.errorMessage}</p>}
           </div>
         </form>
       </PageContainer>
 
       <ButtonContainer>
-        <div className="w-full">
+        <div className="w-full flex justify-between px-4">
+          <div></div>
           <button className="next-button" onClick={handleSubmit}>
             Next Step
           </button>

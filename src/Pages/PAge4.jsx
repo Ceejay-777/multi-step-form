@@ -26,7 +26,7 @@ const Page4 = ({ page2Vals, page3Vals }) => {
     <div>
       <PageContainer>
         <h1 className="header-text">Finishing up</h1>
-        <p className="text-coolGray">
+        <p className="text-coolGray mb-2">
           Double-check everything looks OK before confirming
         </p>
 
@@ -64,7 +64,9 @@ const Page4 = ({ page2Vals, page3Vals }) => {
               );
             })
           ) : (
-            <p>No addons selected</p>
+            <p className="mt-4 text-coolGray font-semibold">
+              No addons selected
+            </p>
           )}
         </div>
         <div className="flex justify-between px-4">

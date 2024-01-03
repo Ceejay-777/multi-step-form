@@ -15,12 +15,16 @@ const Navbar = () => {
           lastChar = "1";
         }
 
+        if (lastChar === "5") {
+          lastChar = "4";
+        }
+
         return (
           <div
             key={index}
-            className={`w-8 h-8 border-pastelBlue text-center my-4  rounded-full ${
+            className={`w-8 h-8 border-pastelBlue my-4 rounded-full ${
               lastChar == navlink ? "bg-pastelBlue" : "bg-none"
-            } border-2 mt-10`}
+            } border-[1px] mt-10 flex items-center justify-center`}
           >
             <p
               className={`font-bold ${

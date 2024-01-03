@@ -20,10 +20,7 @@ label {
   font-weight: 700;
   --tw-text-opacity: 1;
   color: hsl(213 96% 18% / var(--tw-text-opacity));
-}
-
-.testing {
-  margin-left: 16px;
+  margin-bottom: 0.5rem;
 }
 
 .next-button {
@@ -35,6 +32,7 @@ label {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+
 .confirm {
   background-color: hsl(243, 100%, 62%);
 }
