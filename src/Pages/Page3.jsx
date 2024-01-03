@@ -3,7 +3,8 @@ import { addons } from "../data";
 import { usePeriodContext } from "../context/periodContext";
 import check from "../../assets/images/icon-checkmark.svg";
 import { useNavigate } from "react-router-dom";
-import PeriodSwitch from "../components/PeriodSwitch";
+import PageContainer from "../components/PageContainer";
+import ButtonContainer from "../components/ButtonContainer";
 
 const Page3 = ({ page3Vals, setPage3Vals }) => {
   const navigate = useNavigate();
@@ -41,49 +42,68 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
 
   return (
     <div>
-      <div>
-        {addons.map((singleAddon, index) => {
-          const { addon, perk, monthlyPrice, yearlyPrice } = singleAddon;
-          const currentPrice = monthly ? monthlyPrice : yearlyPrice;
-          const combined = addon + "," + currentPrice;
-          const clickedThis =
-            selection !== null && selection.includes(combined);
-          return (
-            <div
-              className="p-4 border-2 my-2"
-              onClick={handleSelection}
-              key={index}
-              datavals={[addon, currentPrice]}
-            >
+      <PageContainer>
+        <h1 className="header-text">Pick add-ons</h1>
+        <p className="text-coolGray">
+          Add-ons help enhance your gaming experience.
+        </p>
+        <div>
+          {addons.map((singleAddon, index) => {
+            const { addon, perk, monthlyPrice, yearlyPrice } = singleAddon;
+            const currentPrice = monthly ? monthlyPrice : yearlyPrice;
+            const combined = addon + "," + currentPrice;
+            const clickedThis =
+              selection !== null && selection.includes(combined);
+            return (
               <div
-                className={`${
-                  clickedThis ? "bg-purpleBlue" : "bg-transparent"
-                } p-1 w-4 aspect-square box-content rounded-md border-2 border-marineBlue`}
+                className={`p-4 border-[1px] my-2 flex items-center rounded-lg justify-between ${
+                  clickedThis
+                    ? "border-purpleBlue bg-alabaster"
+                    : "border-lightGray"
+                }`}
+                onClick={handleSelection}
+                key={index}
+                datavals={[addon, currentPrice]}
               >
-                <img src={check} className="w-full" />
+                <div
+                  className={`${
+                    clickedThis ? "bg-purpleBlue border-none" : "bg-transparent"
+                  } p-1 w-3 h-3 box-content rounded-md border-[1px] flex-grow-0`}
+                >
+                  <img src={check} className="w-full" />
+                </div>
+                <div className="flex justify-between w-full items-center">
+                  <div className="ml-4">
+                    <h2 className="text-marineBlue font-semibold text-sm">
+                      {addon}
+                    </h2>
+                    <p className="text-xs text-coolGray">{perk}</p>
+                  </div>
+                  <p className="text-purpleBlue text-xs font-semibold">
+                    +{monthly ? `$${monthlyPrice}/mo` : `$${yearlyPrice}/yr`}
+                  </p>
+                </div>
               </div>
-              <h2>{addon}</h2>
-              <p>{perk}</p>
-              <p>{monthly ? `$${monthlyPrice}/mo` : `$${yearlyPrice}/yr`}</p>
-              {monthly || <p>2 months free</p>}
-            </div>
-          );
-        })}
-      </div>
-      <div className="flex justify-between px-4 my-2">
-        <button
-          type="button"
-          className="p-1 border-2"
-          onClick={() => {
-            navigate("/Page2");
-          }}
-        >
-          Go back
-        </button>
-        <button type="button" className="p-1 border-2" onClick={handleSubmit}>
-          Next Step
-        </button>
-      </div>
+            );
+          })}
+        </div>
+      </PageContainer>
+      <ButtonContainer>
+        <div className="flex justify-between px-4 my-2">
+          <button
+            type="button"
+            className="text-coolGray font-semibold"
+            onClick={() => {
+              navigate("/Page2");
+            }}
+          >
+            Go Back
+          </button>
+          <button type="button" className="next-button" onClick={handleSubmit}>
+            Next Step
+          </button>
+        </div>
+      </ButtonContainer>
     </div>
   );
 };

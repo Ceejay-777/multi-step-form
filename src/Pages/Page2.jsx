@@ -78,11 +78,7 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
           >
             Go Back
           </button>
-          <button
-            type="button"
-            className="p-1 text-lightGray bg-marineBlue py-2 px-4 rounded-md my-4 font-semibold"
-            onClick={handleSubmit}
-          >
+          <button type="button" className="next-button" onClick={handleSubmit}>
             Next Step
           </button>
         </div>

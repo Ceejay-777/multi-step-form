@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PageContainer from "../components/PageContainer";
+import ButtonContainer from "../components/ButtonContainer";
 
 const Page4 = ({ page2Vals, page3Vals }) => {
   const navigate = useNavigate();
@@ -20,44 +22,53 @@ const Page4 = ({ page2Vals, page3Vals }) => {
 
   return (
     <div>
-      <h1>Finishing up</h1>
-      <p>Double-check everything looks OK before confirming</p>
+      <PageContainer>
+        <h1 className="header-text">Finishing up</h1>
+        <p className="text-coolGray">
+          Double-check everything looks OK before confirming
+        </p>
 
-      <br />
-      <hr />
-      <br />
+        <div className="rounded-sm bg-alabaster p-3">
+          <p>{page2Vals.plan}</p>
+          <button type="button" onClick={() => navigate("/Page2")}>
+            change
+          </button>
+          <p>{page2Vals.price}</p>
 
-      <div>
-        <p>{page2Vals.plan}</p>
-        <button type="button" onClick={() => navigate("/Page2")}>
-          change
-        </button>
-        <p>{page2Vals.price}</p>
+          <br />
+          <hr />
+          <br />
 
-        <br />
-        <hr />
-        <br />
+          {page3Vals ? (
+            page3Vals.map((addon) => {
+              const splitAddons = addon.split(",");
+              return (
+                <div key={addon}>
+                  <div>{splitAddons[0]}</div>
+                  <div>{splitAddons[1]}</div>
+                </div>
+              );
+            })
+          ) : (
+            <p>No addons selected</p>
+          )}
 
-        {page3Vals ? (
-          page3Vals.map((addon) => {
-            const splitAddons = addon.split(",");
-            return (
-              <div key={addon}>
-                <div>{splitAddons[0]}</div>
-                <div>{splitAddons[1]}</div>
-              </div>
-            );
-          })
-        ) : (
-          <p>No addons selected</p>
-        )}
-
-        <br />
-        <hr />
-        <br />
-
+          <br />
+          <hr />
+          <br />
+        </div>
         <p>{total}</p>
-      </div>
+      </PageContainer>
+      <ButtonContainer>
+        <button
+          onClick={() => {
+            navigate("/Page3");
+          }}
+        >
+          Go Back
+        </button>
+        <button></button>
+      </ButtonContainer>
     </div>
   );
 };
