@@ -205,11 +205,11 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
               }`}
               value={phonefield.value}
               onChange={handleInputChange}
-              onBlur={() => {
-                if (submitted) {
-                  validatePhone();
-                }
-              }}
+              // onBlur={() => {
+              //   if (submitted) {
+              //     validatePhone();
+              //   }
+              // }}
               onClick={() => setFormTouched(true)}
             />
           </div>
