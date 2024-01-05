@@ -8,10 +8,6 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: hsl(217, 100%, 97%);
-}
-
 label {
   color: hsl(213, 96%, 18%);
   font-size: small;
@@ -40,14 +36,3 @@ label {
 .confirm {
   background-color: hsl(243, 100%, 62%);
 }
-/* .navball {
-    border-width: 2px 2px;
-} */
-
-/* .backpanel {
-    background-image: url("../assets/images/bg-sidebar-mobile.svg");
-} */
-
-/* .main {
-    z-index: 10;
-} */

@@ -26,7 +26,7 @@ const Page4 = ({ page2Vals, page3Vals }) => {
     <div>
       <PageContainer>
         <h1 className="header-text">Finishing up</h1>
-        <p className="text-coolGray mb-2">
+        <p className="text-coolGray mb-4">
           Double-check everything looks OK before confirming
         </p>
 

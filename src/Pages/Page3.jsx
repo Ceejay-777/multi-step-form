@@ -44,7 +44,7 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
     <div>
       <PageContainer>
         <h1 className="header-text">Pick add-ons</h1>
-        <p className="text-coolGray mb-2">
+        <p className="text-coolGray mb-4">
           Add-ons help enhance your gaming experience.
         </p>
         <div>

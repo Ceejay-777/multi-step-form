@@ -124,7 +124,7 @@ const Page1 = ({ page1Vals, setPage1Vals }) => {
     <div>
       <PageContainer className="bg-white w-11/12 mx-auto rounded-lg p-5">
         <h1 className="header-text">Personal info</h1>
-        <p className="text-coolGray mb-2">
+        <p className="text-coolGray mb-4">
           Please provide your name, email address and phone number.
         </p>
         <form noValidate>
