@@ -31,15 +31,15 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
       <PageContainer>
         <h1 className="header-text mb-4">Select your plan</h1>
         <p className="text-coolGray mb-4">
-          You have the option of monthly or yearly billing
+          You have the option of monthly or yearly billing.
         </p>
         {error && (
           <div className="text-strawberryRed text-lg">
-            Please select a plan!
+            Please select a plan.
           </div>
         )}
 
-        <div className="md:flex gap-4 md:h-[160px] md:mb-4">
+        <div className="md:flex gap-4 md:h-[160px] md:mb-8">
           {planToUse.map((plans, ID) => {
             const { image, plan, price, promo } = plans;
             const currentStyle = "border-purpleBlue bg-alabaster";

@@ -59,7 +59,7 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
                 className={`p-4 border-[1px] my-2 flex items-center rounded-lg justify-between ${
                   clickedThis
                     ? "border-purpleBlue bg-alabaster"
-                    : "border-lightGray"
+                    : "border-lightGray md:mb-4"
                 }`}
                 onClick={handleSelection}
                 key={index}
@@ -74,7 +74,7 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
                 </div>
                 <div className="flex justify-between w-full items-center">
                   <div className="ml-4">
-                    <h2 className="text-marineBlue font-semibold text-sm">
+                    <h2 className="text-marineBlue font-bold text-sm">
                       {addon}
                     </h2>
                     <p className="text-xs text-coolGray">{perk}</p>
