@@ -987,6 +987,19 @@ label {
   border-color: hsl(243 100% 62% / var(--tw-border-opacity));
 }
 
+.hover\:text-purpleBlue:hover {
+  --tw-text-opacity: 1;
+  color: hsl(243 100% 62% / var(--tw-text-opacity));
+}
+
+.hover\:opacity-5:hover {
+  opacity: 0.05;
+}
+
+.hover\:opacity-50:hover {
+  opacity: 0.5;
+}
+
 .active\:border-purpleBlue:active {
   --tw-border-opacity: 1;
   border-color: hsl(243 100% 62% / var(--tw-border-opacity));
@@ -1054,12 +1067,32 @@ label {
     width: 100%;
   }
 
+  .md\:w-\[200px\] {
+    width: 200px;
+  }
+
   .md\:min-w-\[274px\] {
     min-width: 274px;
   }
 
   .md\:max-w-\[40px\] {
     max-width: 40px;
+  }
+
+  .md\:max-w-\[300px\] {
+    max-width: 300px;
+  }
+
+  .md\:max-w-\[400px\] {
+    max-width: 400px;
+  }
+
+  .md\:max-w-\[350px\] {
+    max-width: 350px;
+  }
+
+  .md\:max-w-\[500px\] {
+    max-width: 500px;
   }
 
   .md\:flex-grow {
@@ -1130,5 +1163,10 @@ label {
 
   .md\:pr-16 {
     padding-right: 4rem;
+  }
+
+  .md\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 }

@@ -39,7 +39,7 @@ const Page4 = ({ page2Vals, page3Vals }) => {
               <button
                 type="button"
                 onClick={() => navigate("/Page2")}
-                className="underline text-coolGray font-semibold"
+                className="underline text-coolGray font-semibold hover:text-purpleBlue"
               >
                 Change
               </button>
@@ -92,7 +92,7 @@ const Page4 = ({ page2Vals, page3Vals }) => {
             onClick={() => {
               navigate("/Page5");
             }}
-            className="next-button confirm "
+            className="next-button confirm hover:opacity-50"
           >
             Confirm
           </button>

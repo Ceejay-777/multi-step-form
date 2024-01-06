@@ -56,11 +56,12 @@ const Page3 = ({ page3Vals, setPage3Vals }) => {
               selection !== null && selection.includes(combined);
             return (
               <div
-                className={`p-4 border-[1px] my-2 flex items-center rounded-lg justify-between ${
-                  clickedThis
-                    ? "border-purpleBlue bg-alabaster"
-                    : "border-lightGray md:mb-4"
-                }`}
+                className={`p-4 border-[1px] my-2 flex items-center rounded-lg justify-between hover:cursor-pointer hover:border-purpleBlue md:mb-4
+                 ${
+                   clickedThis
+                     ? "border-purpleBlue bg-alabaster"
+                     : "border-lightGray"
+                 }`}
                 onClick={handleSelection}
                 key={index}
                 datavals={[addon, currentPrice]}

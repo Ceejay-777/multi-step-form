@@ -54,7 +54,7 @@ const Page2 = ({ page2Vals, setPage2Vals }) => {
                 <div
                   className={`border-[1px] my-3 ${
                     currentPlan.plan === plan ? currentStyle : null
-                  } flex gap-4 p-4 rounded-lg md:flex-col md:w-[120px] md:h-full md:justify-between`}
+                  } flex gap-4 p-4 rounded-lg md:flex-col md:w-[120px] md:h-full md:justify-between hover:border-purpleBlue hover:cursor-pointer`}
                 >
                   <img src={image} className="md:max-w-[40px]" />
                   <div>
