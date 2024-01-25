@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import Page1 from "./Pages/Page1.jsx";
 import Page2 from "./Pages/Page2.jsx";
 import Page3 from "./Pages/Page3.jsx";
-import Page4 from "./Pages/Page4.jsx";
-import Page5 from "./Pages/Page5.jsx";
+import Page4 from "./Pages/Page4";
+import Page5 from "./Pages/Page5";
 import SharedLayout from "./navigation/SharedLayout.jsx";
 import { usePeriodContext } from "./context/periodContext";
 
