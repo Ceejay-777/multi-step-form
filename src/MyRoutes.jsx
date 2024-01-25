@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
-import Page1 from "./pages/Page1";
-import Page2 from "./pages/Page2";
-import Page3 from "./pages/Page3";
-import Page4 from "./pages/Page4";
-import Page5 from "./pages/Page5";
-import SharedLayout from "./navigation/SharedLayout";
+import Page1 from "./pages/Page1.jsx";
+import Page2 from "./pages/Page2.jsx";
+import Page3 from "./pages/Page3.jsx";
+import Page4 from "./pages/Page4.jsx";
+import Page5 from "./pages/Page5.jsx";
+import SharedLayout from "./navigation/SharedLayout.jsx";
 import { usePeriodContext } from "./context/periodContext";
 
 const MyRoutes = () => {
