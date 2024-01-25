@@ -22,6 +22,10 @@ export default {
         magnolia: "hsl(217, 100%, 97%)",
         alabaster: "hsl(231, 100%, 99%)",
       },
+      backgroundImage: {
+        desktop: "url('/assets/images/bg-sidebar-desktop.svg')",
+        mobile: "url('/assets/images/bg-sidebar-mobile.svg')",
+      },
     },
   },
   plugins: [],

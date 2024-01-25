@@ -799,8 +799,8 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-\[url\(\'\.\.\/\.\.\/assets\/images\/bg-sidebar-mobile\.svg\'\)\] {
-  background-image: url('../../assets/images/bg-sidebar-mobile.svg');
+.bg-mobile {
+  background-image: url('/assets/images/bg-sidebar-mobile.svg');
 }
 
 .bg-none {
@@ -1130,8 +1130,8 @@ label {
     background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   }
 
-  .md\:bg-\[url\(\'\.\.\/\.\.\/assets\/images\/bg-sidebar-desktop\.svg\'\)\] {
-    background-image: url('../../assets/images/bg-sidebar-desktop.svg');
+  .md\:bg-desktop {
+    background-image: url('/assets/images/bg-sidebar-desktop.svg');
   }
 
   .md\:p-4 {
